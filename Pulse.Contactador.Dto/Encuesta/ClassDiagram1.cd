@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Pulse.Contactador.Dto.ControlPlantilla" Collapsed="true">
+    <Position X="16" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAIAAQAAAAAQgAAAAIEAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\ControlPlantilla.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.Encuesta">
+    <Position X="4.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIACAAAACAACCAEAAAAEAAAAIAAAQAAAAACAAEABA=</HashCode>
+      <FileName>Encuesta\Encuesta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Paginas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.ItemPregunta" Collapsed="true">
+    <Position X="10.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABBAAAAgAAAAAAAAAAAAABAQAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\ItemPregunta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.ItemRespuesta">
+    <Position X="12" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAAAAAAAAIAAAAAAQQEAAAAAAJAAAAEA=</HashCode>
+      <FileName>Encuesta\ItemRespuesta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.ItemResultadoEncuesta" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Encuesta\ItemResultado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.Pagina">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACQAAACAACAAAAAAAAAAAAAAAAABAAAAAAAAABA=</HashCode>
+      <FileName>Encuesta\Pagina.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Preguntas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.PersonaEncuestable" Collapsed="true">
+    <Position X="20.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\PersonaEncuestable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.Plantilla">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACIEAAAIAAIAAAAEAAAgAAAgQAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\Plantilla.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BotonSalir" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.Pregunta">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQBAAAAAAAABAAAAAAABAAABBAAAAAAAABA=</HashCode>
+      <FileName>Encuesta\Pregunta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.PreguntaMatriz" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\PreguntaMatriz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.PreguntaOpcionMultiple">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAKAgAAAAAACABAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\PreguntaOpcionMultiple.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.PreguntaOpcionUnica">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAgAAACAAEAAAAAAAAAAAACAACAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\PreguntaOpcionUnica.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.Respuesta">
+    <Position X="15" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIDAAAAIABEAAAAAAAEAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\Respuesta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ItemsRespuestas" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.CarpetaEncuesta">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CarpetaEncuesta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.ItemCarpetaEncuesta">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAEQAAA=</HashCode>
+      <FileName>ItemCarpetaEncuesta.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Encuesta" />
+      <Property Name="GrupoEncuestado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pulse.Contactador.Dto.GrupoEncuestado">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>GrupoEncuestado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Pulse.Contactador.Dto.TiposPregunta" Collapsed="true">
+    <Position X="20.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAQAAAAAAIAAAAABgAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\TiposPregunta.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pulse.Contactador.Dto.TiposEncuestados" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Encuesta\TiposEncuestados.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pulse.Contactador.Dto.TiposItemPregunta" Collapsed="true">
+    <Position X="20.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAQAAAAAAAAAQQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Encuesta\TiposItemPregunta.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pulse.Contactador.Dto.TiposPeriodosEjecucion" Collapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAIAAAAAAAAAAAAQgAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Encuesta\TiposPeriodosEjecucion.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
