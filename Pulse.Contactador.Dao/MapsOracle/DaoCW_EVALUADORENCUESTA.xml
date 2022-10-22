@@ -1,0 +1,61 @@
+<sqlMap namespace="DaoCW_EVALUADORENCUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_EVALUADORENCUESTA" class="DaoCW_EVALUADORENCUESTA">
+      <result property="IDENCUESTA" column="IDENCUESTA"/>
+      <result property="IDEVALUADOR" column="IDEVALUADOR"/>
+      <result property="ESTADO" column="ESTADO"/>
+      <result property="OBLIGATORIEDAD" column="OBLIGATORIEDAD"/>
+      <result property="GUID" column="GUID"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_EVALUADORENCUESTA" resultMap="ResultDaoCW_EVALUADORENCUESTA">
+      SELECT * FROM CW_EVALUADORENCUESTA
+    </select>
+    <select id="FindDaoCW_EVALUADORENCUESTAPendientes" resultMap="ResultDaoCW_EVALUADORENCUESTA" extends="FindAllDaoCW_EVALUADORENCUESTA">
+      WHERE ESTADO = 1
+    </select>
+    <select id="FindDaoCW_EVALUADORENCUESTAbyENCUESTA" resultMap="ResultDaoCW_EVALUADORENCUESTA" extends="FindAllDaoCW_EVALUADORENCUESTA">
+      WHERE IDENCUESTA = #value#
+    </select>
+    <select id="FindDaoCW_EVALUADORENCUESTAByEVALUADOR" resultMap="ResultDaoCW_EVALUADORENCUESTA" extends="FindAllDaoCW_EVALUADORENCUESTA">
+      WHERE IDEVALUADOR = #value#
+    </select>
+    <select id="FindDaoCW_EVALUADORENCUESTAByGUID" resultMap="ResultDaoCW_EVALUADORENCUESTA" extends="FindAllDaoCW_EVALUADORENCUESTA">
+      WHERE GUID = #value#
+    </select>
+
+    <delete id="DeleteDaoCW_EVALUADORENCUESTA" >
+      DELETE FROM CW_EVALUADORENCUESTA
+      WHERE IDENCUESTA = #IDENCUESTA# AND IDEVALUADOR = #IDEVALUADOR#
+    </delete>
+
+    <insert id="CreateDaoCW_EVALUADORENCUESTA" parameterClass="DaoCW_EVALUADORENCUESTA">
+      INSERT INTO CW_EVALUADORENCUESTA (
+      IDENCUESTA,
+      IDEVALUADOR,
+      ESTADO,
+      OBLIGATORIEDAD,
+      GUID)
+      VALUES(
+      #IDENCUESTA#,
+      #IDEVALUADOR#,
+      #ESTADO#,
+      #OBLIGATORIEDAD#,
+      #GUID#)
+    </insert>
+    <update id="UpdateDaoCW_EVALUADORENCUESTA">
+      UPDATE CW_EVALUADORENCUESTA SET
+      ESTADO = #ESTADO#,
+      GUID = #GUID#
+      WHERE IDENCUESTA = #IDENCUESTA# AND IDEVALUADOR = #IDEVALUADOR#
+    </update>
+
+  </statements>
+
+</sqlMap>

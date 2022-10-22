@@ -1,0 +1,41 @@
+<sqlMap namespace="EstadoCampania"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultEstadoCampania" class="EstadoCampania">
+      <result property="Id" column="IDESTADOCAMPANIA"/>
+      <result property="Campania.Id" column="IDCAMPANIA"/>
+      <result property="FechaEjecutada" column="FECHA"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultEstadoCampania">
+      SELECT * FROM CW_ESTADOCAMPANIA
+    </select>
+
+    <select id="FindByCampaniaId" resultMap="ResultEstadoCampania" extends="FindAll">
+      WHERE IDCAMPANIA = #value#
+    </select>
+
+    <insert id="Create" parameterClass="EstadoCampania">
+      INSERT INTO CW_ESTADOCAMPANIA (
+      IDCAMPANIA,
+      FECHA)
+      VALUES(
+      #Campania.Id#,
+      #FechaEjecutada#)
+    </insert>
+
+    <update id="UpdateEstadoCampania" >
+      UPDATE CW_ESTADOCAMPANIA SET
+      FECHA = #FechaEjecutada#
+      WHERE IDESTADOCAMPANIA = #Id#
+    </update>
+
+
+  </statements>
+
+</sqlMap>

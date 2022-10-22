@@ -1,0 +1,207 @@
+<sqlMap namespace="DaoCW_LISTACORREO"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_LISTACORREO" class="DaoCW_LISTACORREO">
+      <result property="IDLISTACORREO" column="IDLISTACORREO"/>
+      <result property="DESCRIPCION" column="DESCRIPCION"/>
+      <result property="CODIGO" column="CODIGO"/>
+      <result property="TIPOORIGENLISTACORREO" column="TIPOORIGENLISTACORREO"/>
+      <result property="PATHARCHIVOLISTACORREOS" column="PATHARCHIVOLISTACORREOS"/>
+      <result property="SENTENCIASQL" column="SENTENCIASQL"/>
+      <result property="IDCADENACONEXION" column="IDCADENACONEXION"/>
+      <result property="CARGARENDEMANDA" column="CARGARENDEMANDA"/>
+      <result property="IDPROPIETARIO" column="IDPROPIETARIO"/>
+      <result property="TIPOPROPIETARIO" column="TIPOPROPIETARIO"/>
+      <result property="USUARIOCREADOR" column="USUARIOCREADOR"/>
+      <result property="FECHACREACION" column="FECHACREACION"/>
+      <result property="USUARIOMODIFICADOR" column="USUARIOMODIFICADOR"/>
+      <result property="FECHAMODIFICACION" column="FECHAMODIFICACION"/>
+      <result property="IDGRUPO" column="IDGRUPO"/>
+      <result property="RUTCARGACONDV" column="RUTCARGACONDV"/>
+      
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_LISTACORREO" resultMap="ResultDaoCW_LISTACORREO">
+      SELECT * FROM CW_LISTACORREO
+    </select>
+
+    <select id="FindDaoCW_LISTACORREO" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE IDLISTACORREO = #value#
+    </select>
+
+    <select id="FindByIDGrupo" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE IDGRUPO = #value#
+    </select>
+
+    <select id="FindDaoCW_LISTACORREOByDESCRIPCION" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE DESCRIPCION = #DESCRIPCION#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByCODIGO" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE CODIGO = #CODIGO#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByTIPOORIGENLISTACORREO" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE TIPOORIGENLISTACORREO = #TIPOORIGENLISTACORREO#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByPATHARCHIVOLISTACORREOS" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE PATHARCHIVOLISTACORREOS = #PATHARCHIVOLISTACORREOS#
+    </select>
+    <select id="FindDaoCW_LISTACORREOBySENTENCIASQL" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE SENTENCIASQL = #SENTENCIASQL#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByIDCADENACONEXION" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE IDCADENACONEXION = #IDCADENACONEXION#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByCARGARENDEMANDA" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE CARGARENDEMANDA = #CARGARENDEMANDA#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByIDPROPIETARIO" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE IDPROPIETARIO = #IDPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByTIPOPROPIETARIO" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE TIPOPROPIETARIO = #TIPOPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByUSUARIOCREADOR" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE USUARIOCREADOR = #USUARIOCREADOR#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByFECHACREACION" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE FECHACREACION = #FECHACREACION#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByUSUARIOMODIFICADOR" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+    </select>
+    <select id="FindDaoCW_LISTACORREOByFECHAMODIFICACION" resultMap="ResultDaoCW_LISTACORREO" extends="FindAllDaoCW_LISTACORREO">
+      WHERE FECHAMODIFICACION = #FECHAMODIFICACION#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_LISTACORREO" resultMap="ResultDaoCW_LISTACORREO">
+      Select * from CW_LISTACORREO
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDLISTACORREO">
+          <isGreaterThan compareValue="0" property="IDLISTACORREO">
+            AND IDLISTACORREO = #IDLISTACORREO#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isNotNull property="DESCRIPCION">
+          AND DESCRIPCION = #DESCRIPCION#
+        </isNotNull>
+
+        <isNotNull property="CODIGO">
+          AND CODIGO = #CODIGO#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="TIPOORIGENLISTACORREO">
+          AND TIPOORIGENLISTACORREO = #TIPOORIGENLISTACORREO#
+        </isGreaterThan>
+
+        <isNotNull property="PATHARCHIVOLISTACORREOS">
+          AND PATHARCHIVOLISTACORREOS = #PATHARCHIVOLISTACORREOS#
+        </isNotNull>
+
+        <isNotNull property="SENTENCIASQL">
+          AND SENTENCIASQL = #SENTENCIASQL#
+        </isNotNull>
+
+        <isNotNull property="IDCADENACONEXION">
+          AND IDCADENACONEXION = #IDCADENACONEXION#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="CARGARENDEMANDA">
+          AND CARGARENDEMANDA = #CARGARENDEMANDA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="IDPROPIETARIO">
+          AND IDPROPIETARIO = #IDPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="TIPOPROPIETARIO">
+          AND TIPOPROPIETARIO = #TIPOPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOCREADOR">
+          AND USUARIOCREADOR = #USUARIOCREADOR#
+        </isGreaterThan>
+
+
+        <isGreaterThan compareValue="0" property="USUARIOMODIFICADOR">
+          AND USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+        </isGreaterThan>
+
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_LISTACORREO" >
+      UPDATE CW_LISTACORREO SET
+      DESCRIPCION = #DESCRIPCION#,
+      CODIGO = #CODIGO#,
+      TIPOORIGENLISTACORREO = #TIPOORIGENLISTACORREO#,
+      PATHARCHIVOLISTACORREOS = #PATHARCHIVOLISTACORREOS#,
+      SENTENCIASQL = #SENTENCIASQL#,
+      IDCADENACONEXION = #IDCADENACONEXION#,
+      CARGARENDEMANDA = #CARGARENDEMANDA#,
+      IDPROPIETARIO = #IDPROPIETARIO#,
+      TIPOPROPIETARIO = #TIPOPROPIETARIO#,
+      USUARIOCREADOR = #USUARIOCREADOR#,
+      FECHACREACION = #FECHACREACION#,
+      USUARIOMODIFICADOR = #USUARIOMODIFICADOR#,
+      FECHAMODIFICACION = #FECHAMODIFICACION#
+      WHERE IDLISTACORREO = #IDLISTACORREO#
+    </update>
+
+    <delete id="DeleteDaoCW_LISTACORREO" >
+      DELETE FROM CW_LISTACORREO
+      WHERE IDLISTACORREO = #IDLISTACORREO#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_LISTACORREO" >
+      SELECT MAX(IDLISTACORREO) + 1 FROM CW_LISTACORREO
+    </select>
+
+    <insert id="CreateDaoCW_LISTACORREO" parameterClass="DaoCW_LISTACORREO">
+      <selectKey resultClass="int" type="post" property="IDLISTACORREO" >
+        SELECT @@IDENTITY AS value
+      </selectKey>
+      INSERT INTO CW_LISTACORREO (
+      DESCRIPCION,
+      CODIGO,
+      TIPOORIGENLISTACORREO,
+      PATHARCHIVOLISTACORREOS,
+      SENTENCIASQL,
+      IDCADENACONEXION,
+      CARGARENDEMANDA,
+      IDPROPIETARIO,
+      TIPOPROPIETARIO,
+      USUARIOCREADOR,
+      FECHACREACION,
+      USUARIOMODIFICADOR,
+      FECHAMODIFICACION,
+      IDGRUPO,
+      RUTCARGACONDV)
+      VALUES(
+      #DESCRIPCION#,
+      #CODIGO#,
+      #TIPOORIGENLISTACORREO#,
+      #PATHARCHIVOLISTACORREOS#,
+      #SENTENCIASQL#,
+      #IDCADENACONEXION#,
+      #CARGARENDEMANDA#,
+      #IDPROPIETARIO#,
+      #TIPOPROPIETARIO#,
+      #USUARIOCREADOR#,
+      #FECHACREACION#,
+      #USUARIOMODIFICADOR#,
+      #FECHAMODIFICACION#,
+      #IDGRUPO#,
+      #RUTCARGACONDV#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

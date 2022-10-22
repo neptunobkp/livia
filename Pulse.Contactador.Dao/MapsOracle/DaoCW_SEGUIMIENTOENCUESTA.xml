@@ -1,0 +1,53 @@
+<sqlMap namespace="DaoCW_SEGUIMIENTOENCUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_SEGUIMIENTOENCUESTA" class="DaoCW_SEGUIMIENTOENCUESTA">
+      <result property="IDEVALUADOR" column="IDEVALUADOR"/>
+      <result property="IDENCUESTA" column="IDENCUESTA"/>
+      <result property="CUERPOCORREO" column="CUERPOCORREO"/>
+      <result property="FECHAULTIMOENVIO" column="FECHAULTIMOENVIO"/>
+      <result property="CANTIDADRECORDATORIOS" column="CANTIDADRECORDATORIOS"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_SEGUIMIENTOENCUESTA" resultMap="ResultDaoCW_SEGUIMIENTOENCUESTA">
+      SELECT * FROM CW_SEGUIMIENTOENCUESTA
+    </select>
+
+    <select id="FindDaoCW_SEGUIMIENTOENCUESTA" resultMap="ResultDaoCW_SEGUIMIENTOENCUESTA" extends="FindAllDaoCW_SEGUIMIENTOENCUESTA">
+      WHERE IDEVALUADOR = #IDEVALUADOR# AND IDENCUESTA = #IDENCUESTA#
+    </select>
+
+    <insert id="CreateDaoCW_SEGUIMIENTOENCUESTA" parameterClass="DaoCW_SEGUIMIENTOENCUESTA">
+      INSERT INTO CW_SEGUIMIENTOENCUESTA (
+      IDEVALUADOR,
+      IDENCUESTA,
+      CUERPOCORREO,
+      FECHAULTIMOENVIO,
+      CANTIDADRECORDATORIOS)
+      VALUES(
+      #IDEVALUADOR#,
+      #IDENCUESTA#,
+      #CUERPOCORREO#,
+      #FECHAULTIMOENVIO#,
+      #CANTIDADRECORDATORIOS#)
+    </insert>
+    
+    <update id="UpdateDaoCW_SEGUIMIENTOENCUESTA" parameterClass="DaoCW_SEGUIMIENTOENCUESTA">
+      UPDATE CW_SEGUIMIENTOENCUESTA SET
+      CUERPOCORREO = #CUERPOCORREO#,
+      FECHAULTIMOENVIO = #FECHAULTIMOENVIO#,
+      CANTIDADRECORDATORIOS = #CANTIDADRECORDATORIOS#
+      WHERE IDEVALUADOR = #IDEVALUADOR# AND IDENCUESTA = #IDENCUESTA#
+    </update>
+    <delete id="DeleteDaoCW_SEGUIMIENTOENCUESTA" parameterClass="DaoCW_SEGUIMIENTOENCUESTA">
+      DELETE FROM CW_SEGUIMIENTOENCUESTA WHERE
+      IDEVALUADOR = #IDEVALUADOR# AND IDENCUESTA = #IDENCUESTA#
+    </delete>
+  </statements>
+
+</sqlMap>

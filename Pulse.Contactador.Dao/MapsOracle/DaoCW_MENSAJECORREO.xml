@@ -1,0 +1,211 @@
+<sqlMap namespace="DaoCW_MENSAJECORREO"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_MENSAJECORREO" class="DaoCW_MENSAJECORREO">
+      <result property="IDMENSAJECORREO" column="IDMENSAJECORREO"/>
+      <result property="ENCABEZADOHTML" column="ENCABEZADOHTML"/>
+      <result property="CUERPOHTML" column="GRANCUERPOHTML"/>
+      <result property="PIEPAGINAHTML" column="PIEPAGINAHTML"/>
+      <result property="TITULO" column="TITULO"/>
+      <result property="NOMBREDE" column="NOMBREDE"/>
+      <result property="DIRECCIONCORREODE" column="DIRECCIONCORREODE"/>
+      <result property="NOMBREA" column="NOMBREA"/>
+      <result property="IDPROPIETARIO" column="IDPROPIETARIO"/>
+      <result property="TIPOPROPIETARIO" column="TIPOPROPIETARIO"/>
+      <result property="USUARIOCREADOR" column="USUARIOCREADOR"/>
+      <result property="USUARIOMODIFICADOR" column="USUARIOMODIFICADOR"/>
+      <result property="FECHACREACION" column="FECHACREACION"/>
+      <result property="FECHAMODIFICACION" column="FECHAMODIFICACION"/>
+      <result property="TIPOESTADOENTIDAD" column="TIPOESTADOENTIDAD"/>
+      <result property="ARCHIVOSADJUNTOS" column="ARCHIVOSADJUNTOS"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_MENSAJECORREO" resultMap="ResultDaoCW_MENSAJECORREO">
+      SELECT * FROM CW_MENSAJECORREO
+    </select>
+
+    <select id="FindDaoCW_MENSAJECORREO" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE IDMENSAJECORREO = #value#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByENCABEZADOHTML" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE ENCABEZADOHTML = #ENCABEZADOHTML#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByCUERPOHTML" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE CUERPOHTML = #CUERPOHTML#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByPIEPAGINAHTML" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE PIEPAGINAHTML = #PIEPAGINAHTML#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByTITULO" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE TITULO = #TITULO#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByNOMBREDE" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE NOMBREDE = #NOMBREDE#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByDIRECCIONCORREODE" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE DIRECCIONCORREODE = #DIRECCIONCORREODE#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByNOMBREA" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE NOMBREA = #NOMBREA#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByIDPROPIETARIO" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE IDPROPIETARIO = #IDPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByTIPOPROPIETARIO" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE TIPOPROPIETARIO = #TIPOPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByUSUARIOCREADOR" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE USUARIOCREADOR = #USUARIOCREADOR#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByUSUARIOMODIFICADOR" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByFECHACREACION" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE FECHACREACION = #FECHACREACION#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByFECHAMODIFICACION" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE FECHAMODIFICACION = #FECHAMODIFICACION#
+    </select>
+    <select id="FindDaoCW_MENSAJECORREOByTIPOESTADOENTIDAD" resultMap="ResultDaoCW_MENSAJECORREO" extends="FindAllDaoCW_MENSAJECORREO">
+      WHERE TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_MENSAJECORREO" resultMap="ResultDaoCW_MENSAJECORREO">
+      Select * from CW_MENSAJECORREO
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDMENSAJECORREO">
+          <isGreaterThan compareValue="0" property="IDMENSAJECORREO">
+            AND IDMENSAJECORREO = #IDMENSAJECORREO#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isNotNull property="ENCABEZADOHTML">
+          AND ENCABEZADOHTML = #ENCABEZADOHTML#
+        </isNotNull>
+
+        <isNotNull property="CUERPOHTML">
+          AND CUERPOHTML = #CUERPOHTML#
+        </isNotNull>
+
+        <isNotNull property="PIEPAGINAHTML">
+          AND PIEPAGINAHTML = #PIEPAGINAHTML#
+        </isNotNull>
+
+        <isNotNull property="TITULO">
+          AND TITULO = #TITULO#
+        </isNotNull>
+
+        <isNotNull property="NOMBREDE">
+          AND NOMBREDE = #NOMBREDE#
+        </isNotNull>
+
+        <isNotNull property="DIRECCIONCORREODE">
+          AND DIRECCIONCORREODE = #DIRECCIONCORREODE#
+        </isNotNull>
+
+        <isNotNull property="NOMBREA">
+          AND NOMBREA = #NOMBREA#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDPROPIETARIO">
+          AND IDPROPIETARIO = #IDPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="TIPOPROPIETARIO">
+          AND TIPOPROPIETARIO = #TIPOPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOCREADOR">
+          AND USUARIOCREADOR = #USUARIOCREADOR#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOMODIFICADOR">
+          AND USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+        </isGreaterThan>
+
+
+
+        <isGreaterThan compareValue="0" property="TIPOESTADOENTIDAD">
+          AND TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+        </isGreaterThan>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_MENSAJECORREO" >
+      UPDATE CW_MENSAJECORREO SET
+      ENCABEZADOHTML = #ENCABEZADOHTML#,
+      GRANCUERPOHTML = #CUERPOHTML#,
+      PIEPAGINAHTML = #PIEPAGINAHTML#,
+      TITULO = #TITULO#,
+      NOMBREDE = #NOMBREDE#,
+      DIRECCIONCORREODE = #DIRECCIONCORREODE#,
+      NOMBREA = #NOMBREA#,
+      IDPROPIETARIO = #IDPROPIETARIO#,
+      TIPOPROPIETARIO = #TIPOPROPIETARIO#,
+      USUARIOCREADOR = #USUARIOCREADOR#,
+      USUARIOMODIFICADOR = #USUARIOMODIFICADOR#,
+      FECHACREACION = #FECHACREACION#,
+      FECHAMODIFICACION = #FECHAMODIFICACION#,
+      TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+      WHERE IDMENSAJECORREO = #IDMENSAJECORREO#
+    </update>
+
+    <delete id="DeleteDaoCW_MENSAJECORREO" >
+      DELETE FROM CW_MENSAJECORREO
+      WHERE IDMENSAJECORREO = #IDMENSAJECORREO#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_MENSAJECORREO" >
+      SELECT MAX(IDMENSAJECORREO) + 1 FROM CW_MENSAJECORREO
+    </select>
+
+    <insert id="CreateDaoCW_MENSAJECORREO" parameterClass="DaoCW_MENSAJECORREO">
+      <selectKey resultClass="int" type="pre" property="IDMENSAJECORREO" >
+        SELECT CW_MENSAJECORREO_SEQ.NEXTVAL AS VALUE FROM DUAL
+      </selectKey>
+      INSERT INTO CW_MENSAJECORREO (
+      IDMENSAJECORREO,
+      ENCABEZADOHTML,
+      GRANCUERPOHTML,
+      PIEPAGINAHTML,
+      TITULO,
+      NOMBREDE,
+      DIRECCIONCORREODE,
+      NOMBREA,
+      IDPROPIETARIO,
+      TIPOPROPIETARIO,
+      USUARIOCREADOR,
+      USUARIOMODIFICADOR,
+      FECHACREACION,
+      FECHAMODIFICACION,
+      TIPOESTADOENTIDAD,
+      ARCHIVOSADJUNTOS)
+      VALUES(
+      #IDMENSAJECORREO#,
+      #ENCABEZADOHTML#,
+      #CUERPOHTML#,
+      #PIEPAGINAHTML#,
+      #TITULO#,
+      #NOMBREDE#,
+      #DIRECCIONCORREODE#,
+      #NOMBREA#,
+      #IDPROPIETARIO#,
+      #TIPOPROPIETARIO#,
+      #USUARIOCREADOR#,
+      #USUARIOMODIFICADOR#,
+      #FECHACREACION#,
+      #FECHAMODIFICACION#,
+      #TIPOESTADOENTIDAD#,
+      #ARCHIVOSADJUNTOS#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

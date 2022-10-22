@@ -1,0 +1,70 @@
+<sqlMap namespace="ItemCarpetaEncuesta"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultItemCarpetaEncuesta" class="ItemCarpetaEncuesta">
+      <result property="Id" column="IDITEMCARPETAENCUESTA"/>
+      <result property="Encuesta.Id" column="IDENCUESTA"/>
+      <result property="Encuesta.Titulo" column="TITULO"/>
+      <result property="GrupoEncuestado.Id" column="IDGRUPO"/>
+      <result property="CarpetaEncuesta.Id" column="IDCARPETA"/>
+      <result property="TipoEstadoCarpetaEncuesta" column="TIPOESTADOCARPETAENCUESTA"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultItemCarpetaEncuesta">
+      SELECT * FROM CW_ITEMCARPETAENCUESTA
+    </select>
+
+    <select id="FindByCarpetaId" resultMap="ResultItemCarpetaEncuesta">
+      SELECT CW_ITEMCARPETAENCUESTA.*, CW_ENCUESTA.TITULO FROM CW_ITEMCARPETAENCUESTA
+      JOIN CW_ENCUESTA ON CW_ITEMCARPETAENCUESTA.IDENCUESTA = CW_ENCUESTA.IDENCUESTA
+      WHERE IDCARPETA = #value#
+    </select>
+    <select id="Find" resultMap="ResultItemCarpetaEncuesta" extends="FindAll">
+      WHERE IDITEMCARPETAENCUESTA = #value#
+    </select>
+
+    <insert id="Create" parameterClass="ItemCarpetaEncuesta">
+      <selectKey resultClass="int" type="pre" property="Id" >
+        SELECT CW_ITEMCARPETAENCUESTA_SEQ.NEXTVAL AS VALUE FROM DUAL
+      </selectKey>
+      INSERT INTO CW_ITEMCARPETAENCUESTA (
+      IDITEMCARPETAENCUESTA,
+      IDENCUESTA,
+      IDGRUPO,
+      IDCARPETA,
+      TIPOESTADOCARPETAENCUESTA)
+      VALUES(
+      #Id#,
+      #Encuesta.Id#,
+      #GrupoEncuestado.Id#,
+      #CarpetaEncuesta.Id#,
+      #TipoEstadoCarpetaEncuesta#
+      )
+    </insert>
+    <delete id="Delete">
+      DELETE FROM CW_ITEMCARPETAENCUESTA
+      WHERE IDITEMCARPETAENCUESTA = #value#
+    </delete>
+    <delete id="DeleteByGrupoYCarpeta">
+      DELETE FROM CW_ITEMCARPETAENCUESTA
+      WHERE IDCARPETA = #carpeta#
+      AND IDGRUPO = #grupo#
+    </delete>
+    <update id="UpdateItemCarpetaEncuesta" >
+      UPDATE CW_ITEMCARPETAENCUESTA SET
+      IDENCUESTA = #Encuesta.Id#,
+      IDGRUPO = #GrupoEncuestado.Id#,
+      IDCARPETA = #CarpetaEncuesta.Id#,
+      TIPOESTADOCARPETAENCUESTA = #TipoEstadoCarpetaEncuesta#
+      WHERE IDITEMCARPETAENCUESTA = #Id#
+    </update>
+
+
+  </statements>
+
+</sqlMap>

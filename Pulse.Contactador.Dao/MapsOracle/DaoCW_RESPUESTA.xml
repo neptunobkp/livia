@@ -1,0 +1,219 @@
+<sqlMap namespace="DaoCW_RESPUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_RESPUESTA" class="DaoCW_RESPUESTA">
+      <result property="IDRESPUESTA" column="IDRESPUESTA"/>
+      <result property="IDENCUESTA" column="IDENCUESTA"/>
+      <result property="ENCUESTADORUT" column="ENCUESTADORUT"/>
+      <result property="ENCUESTADONOMBRE" column="ENCUESTADONOMBRE"/>
+      <result property="ENCUESTADOCORREO" column="ENCUESTADOCORREO"/>
+      <result property="INICIORESPUESTAENCUESTA" column="INICIORESPUESTAENCUESTA"/>
+      <result property="TERMINORESPUESTAENCUESTA" column="TERMINORESPUESTAENCUESTA"/>
+      <result property="DIRECCIONIP" column="DIRECCIONIP"/>
+      <result property="COMPLETADO" column="COMPLETADO"/>
+      <result property="MINUTOSTRANSCURRIDOS" column="MINUTOSTRANSCURRIDOS"/>
+      <result property="NAVEGADOR" column="NAVEGADOR"/>
+      <result property="URLENCUESTAENVIADA" column="URLENCUESTAENVIADA"/>
+      <result property="ANOTACION" column="ANOTACION"/>
+      <result property="IDITEMCORREODESTINO" column="IDITEMCORREODESTINO"/>
+      <result property="TIPOESTADORESPUESTA" column="TIPOESTADORESPUESTA"/>
+      <result property="IDCAMPANIA" column="IDCAMPANIA"/>
+      <result property="NOMBREUSUARIOCLIENTE" column="NOMBREUSUARIOCLIENTE"/>
+
+
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_RESPUESTA" resultMap="ResultDaoCW_RESPUESTA">
+      SELECT * FROM CW_RESPUESTA
+    </select>
+
+    <select id="CountRespuestasByEncuestaId">
+      select count(*) from CW_RESPUESTA
+      where IDENCUESTA = #value#
+    </select>
+
+    <select id="FindByItemCorreoId" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE IDITEMCORREODESTINO = #value#
+    </select>
+
+    <select id="FindByItemCorreoIdCampaniaId" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE
+      IDITEMCORREODESTINO = #itemcorreoid#
+      AND IDCAMPANIA = #campaniaid#
+      AND IDENCUESTA = #encuestaid#
+    </select>
+    <select id="FindRespuestaByEncuestaEvaluador" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE
+      IDITEMCORREODESTINO = #evaluadorid#
+      AND IDENCUESTA = #encuestaid#
+    </select>
+
+    <select id="FindRespuestasByEncuestaEvaluador" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE
+      IDITEMCORREODESTINO = #evaluadorid#
+      AND IDENCUESTA = #encuestaid#
+    </select>
+
+
+    <select id="FindDaoCW_RESPUESTA" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE IDRESPUESTA = #value#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByIDENCUESTA" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE IDENCUESTA = #IDENCUESTA#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByENCUESTADORUT" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE ENCUESTADORUT = #ENCUESTADORUT#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByENCUESTADONOMBRE" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE ENCUESTADONOMBRE = #ENCUESTADONOMBRE#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByENCUESTADOCORREO" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE ENCUESTADOCORREO = #ENCUESTADOCORREO#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByINICIORESPUESTAENCUESTA" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE INICIORESPUESTAENCUESTA = #INICIORESPUESTAENCUESTA#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByTERMINORESPUESTAENCUESTA" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE TERMINORESPUESTAENCUESTA = #TERMINORESPUESTAENCUESTA#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByDIRECCIONIP" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE DIRECCIONIP = #DIRECCIONIP#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByCOMPLETADO" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE COMPLETADO = #COMPLETADO#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByMINUTOSTRANSCURRIDOS" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE MINUTOSTRANSCURRIDOS = #MINUTOSTRANSCURRIDOS#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByNAVEGADOR" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE NAVEGADOR = #NAVEGADOR#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByURLENCUESTAENVIADA" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE URLENCUESTAENVIADA = #URLENCUESTAENVIADA#
+    </select>
+    <select id="FindDaoCW_RESPUESTAByANOTACION" resultMap="ResultDaoCW_RESPUESTA" extends="FindAllDaoCW_RESPUESTA">
+      WHERE ANOTACION = #ANOTACION#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_RESPUESTA" resultMap="ResultDaoCW_RESPUESTA">
+      Select * from CW_RESPUESTA
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDRESPUESTA">
+          <isGreaterThan compareValue="0" property="IDRESPUESTA">
+            AND IDRESPUESTA = #IDRESPUESTA#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDENCUESTA">
+          AND IDENCUESTA = #IDENCUESTA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="ENCUESTADORUT">
+          AND ENCUESTADORUT = #ENCUESTADORUT#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="ENCUESTADONOMBRE">
+          AND ENCUESTADONOMBRE = #ENCUESTADONOMBRE#
+        </isGreaterThan>
+
+        <isNotNull property="ENCUESTADOCORREO">
+          AND ENCUESTADOCORREO = #ENCUESTADOCORREO#
+        </isNotNull>
+
+
+
+        <isNotNull property="DIRECCIONIP">
+          AND DIRECCIONIP = #DIRECCIONIP#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="COMPLETADO">
+          AND COMPLETADO = #COMPLETADO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="MINUTOSTRANSCURRIDOS">
+          AND MINUTOSTRANSCURRIDOS = #MINUTOSTRANSCURRIDOS#
+        </isGreaterThan>
+
+        <isNotNull property="NAVEGADOR">
+          AND NAVEGADOR = #NAVEGADOR#
+        </isNotNull>
+
+        <isNotNull property="URLENCUESTAENVIADA">
+          AND URLENCUESTAENVIADA = #URLENCUESTAENVIADA#
+        </isNotNull>
+
+        <isNotNull property="ANOTACION">
+          AND ANOTACION = #ANOTACION#
+        </isNotNull>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_RESPUESTA" >
+      UPDATE CW_RESPUESTA SET
+      TERMINORESPUESTAENCUESTA = #TERMINORESPUESTAENCUESTA#,
+      MINUTOSTRANSCURRIDOS = #MINUTOSTRANSCURRIDOS#,
+      TIPOESTADORESPUESTA = #TIPOESTADORESPUESTA#
+      WHERE IDRESPUESTA = #IDRESPUESTA#
+    </update>
+
+    <delete id="DeleteDaoCW_RESPUESTA" >
+      DELETE FROM CW_RESPUESTA
+      WHERE IDRESPUESTA = #IDRESPUESTA#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_RESPUESTA" >
+      SELECT MAX(IDRESPUESTA) + 1 FROM CW_RESPUESTA
+    </select>
+
+    <insert id="CreateDaoCW_RESPUESTA" parameterClass="DaoCW_RESPUESTA">
+      <selectKey resultClass="int" type="pre" property="IDRESPUESTA" >
+        SELECT CW_RESPUESTA_SEQ.NEXTVAL AS VALUE FROM DUAL
+      </selectKey>
+      INSERT INTO CW_RESPUESTA (
+      IDRESPUESTA,
+      IDENCUESTA,
+      ENCUESTADORUT,
+      ENCUESTADONOMBRE,
+      ENCUESTADOCORREO,
+      INICIORESPUESTAENCUESTA,
+      TERMINORESPUESTAENCUESTA,
+      DIRECCIONIP,
+      COMPLETADO,
+      MINUTOSTRANSCURRIDOS,
+      NAVEGADOR,
+      URLENCUESTAENVIADA,
+      ANOTACION,
+      IDITEMCORREODESTINO,
+      TIPOESTADORESPUESTA,
+      IDCAMPANIA,
+      NOMBREUSUARIOCLIENTE)
+      VALUES(
+      #IDRESPUESTA#,
+      #IDENCUESTA#,
+      #ENCUESTADORUT#,
+      #ENCUESTADONOMBRE#,
+      #ENCUESTADOCORREO#,
+      #INICIORESPUESTAENCUESTA#,
+      #TERMINORESPUESTAENCUESTA#,
+      #DIRECCIONIP#,
+      #COMPLETADO#,
+      #MINUTOSTRANSCURRIDOS#,
+      #NAVEGADOR#,
+      #URLENCUESTAENVIADA#,
+      #ANOTACION#,
+      #IDITEMCORREODESTINO#,
+      #TIPOESTADORESPUESTA#,
+      #IDCAMPANIA#,
+      #NOMBREUSUARIOCLIENTE#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

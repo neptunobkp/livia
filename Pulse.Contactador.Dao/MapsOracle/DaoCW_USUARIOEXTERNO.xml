@@ -1,0 +1,148 @@
+<sqlMap namespace="DaoCW_USUARIOEXTERNO"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_USUARIOEXTERNO" class="DaoCW_USUARIOEXTERNO">
+      <result property="IDUSUARIOEXTERNO" column="IDUSUARIOEXTERNO"/>
+      <result property="RUT" column="RUT"/>
+      <result property="NOMBRES" column="NOMBRES"/>
+      <result property="TELEFONO" column="TELEFONO"/>
+      <result property="CELULAR" column="CELULAR"/>
+      <result property="NOMBREINGRESO" column="NOMBREINGRESO"/>
+      <result property="CLAVE" column="CLAVE"/>
+      <result property="TIPOESTADOENTIDAD" column="TIPOESTADOENTIDAD"/>
+      <result property="CORREO" column="CORREO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_USUARIOEXTERNO" resultMap="ResultDaoCW_USUARIOEXTERNO">
+      SELECT * FROM CW_USUARIOEXTERNO
+    </select>
+
+    <select id="FindDaoCW_USUARIOEXTERNO" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE IDUSUARIOEXTERNO = #value#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByRUT" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE RUT = #RUT#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByNOMBRES" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE NOMBRES = #NOMBRES#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByTELEFONO" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE TELEFONO = #TELEFONO#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByCELULAR" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE CELULAR = #CELULAR#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByNOMBREINGRESO" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE NOMBREINGRESO = #NOMBREINGRESO#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByCLAVE" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE CLAVE = #CLAVE#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByTIPOESTADOENTIDAD" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+    </select>
+    <select id="FindDaoCW_USUARIOEXTERNOByCORREO" resultMap="ResultDaoCW_USUARIOEXTERNO" extends="FindAllDaoCW_USUARIOEXTERNO">
+      WHERE CORREO = #CORREO#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_USUARIOEXTERNO" resultMap="ResultDaoCW_USUARIOEXTERNO">
+      Select * from CW_USUARIOEXTERNO
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDUSUARIOEXTERNO">
+          <isGreaterThan compareValue="0" property="IDUSUARIOEXTERNO">
+            AND IDUSUARIOEXTERNO = #IDUSUARIOEXTERNO#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="RUT">
+          AND RUT = #RUT#
+        </isGreaterThan>
+
+        <isNotNull property="NOMBRES">
+          AND NOMBRES = #NOMBRES#
+        </isNotNull>
+
+        <isNotNull property="TELEFONO">
+          AND TELEFONO = #TELEFONO#
+        </isNotNull>
+
+        <isNotNull property="CELULAR">
+          AND CELULAR = #CELULAR#
+        </isNotNull>
+
+        <isNotNull property="NOMBREINGRESO">
+          AND NOMBREINGRESO = #NOMBREINGRESO#
+        </isNotNull>
+
+        <isNotNull property="CLAVE">
+          AND CLAVE = #CLAVE#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="TIPOESTADOENTIDAD">
+          AND TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+        </isGreaterThan>
+
+        <isNotNull property="CORREO">
+          AND CORREO = #CORREO#
+        </isNotNull>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_USUARIOEXTERNO" >
+      UPDATE CW_USUARIOEXTERNO SET
+      RUT = #RUT#,
+      NOMBRES = #NOMBRES#,
+      TELEFONO = #TELEFONO#,
+      CELULAR = #CELULAR#,
+      NOMBREINGRESO = #NOMBREINGRESO#,
+      CLAVE = #CLAVE#,
+      TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#,
+      CORREO = #CORREO#
+      WHERE IDUSUARIOEXTERNO = #IDUSUARIOEXTERNO#
+    </update>
+
+    <delete id="DeleteDaoCW_USUARIOEXTERNO" >
+      DELETE FROM CW_USUARIOEXTERNO
+      WHERE IDUSUARIOEXTERNO = #IDUSUARIOEXTERNO#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_USUARIOEXTERNO" >
+      SELECT MAX(IDUSUARIOEXTERNO) + 1 FROM CW_USUARIOEXTERNO
+    </select>
+
+    <insert id="CreateDaoCW_USUARIOEXTERNO" parameterClass="DaoCW_USUARIOEXTERNO">
+      <selectKey resultClass="int" type="pre" property="IDUSUARIOEXTERNO" >
+        SELECT CW_USUARIOEXTERNO_SEQ.NEXTVAL AS VALUE FROM DUAL
+      </selectKey>
+      INSERT INTO CW_USUARIOEXTERNO (
+      IDUSUARIOEXTERNO,
+      RUT,
+      NOMBRES,
+      TELEFONO,
+      CELULAR,
+      NOMBREINGRESO,
+      CLAVE,
+      TIPOESTADOENTIDAD,
+      CORREO)
+      VALUES(
+      #IDUSUARIOEXTERNO#,
+      #RUT#,
+      #NOMBRES#,
+      #TELEFONO#,
+      #CELULAR#,
+      #NOMBREINGRESO#,
+      #CLAVE#,
+      #TIPOESTADOENTIDAD#,
+      #CORREO#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

@@ -1,0 +1,219 @@
+<sqlMap namespace="DaoCW_ENCUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_ENCUESTA" class="DaoCW_ENCUESTA">
+      <result property="IDENCUESTA" column="IDENCUESTA"/>
+      <result property="IDPLANTILLAENCUESTA" column="IDPLANTILLAENCUESTA"/>
+      <result property="NUMEROPAGINAS" column="NUMEROPAGINAS"/>
+      <result property="TITULO" column="TITULO"/>
+      <result property="INTRODUCCION" column="INTRODUCCION"/>
+      <result property="MENSAJEPIEPAGINA" column="MENSAJEPIEPAGINA"/>
+      <result property="DESCRIPCIONPIEPAGINA" column="DESCRIPCIONPIEPAGINA"/>
+      <result property="FECHAINICIOVIGENCIA" column="FECHAINICIOVIGENCIA"/>
+      <result property="FECHATERMINOVIGENCIA" column="FECHATERMINOVIGENCIA"/>
+      <result property="CUOTALIMITEENCUESTA" column="CUOTALIMITEENCUESTA"/>
+      <result property="PRIMERAPAGINACONTENIDA" column="PRIMERAPAGINACONTENIDA"/>
+      <result property="USUARIOCREADOR" column="USUARIOCREADOR"/>
+      <result property="FECHACREACION" column="FECHACREACION"/>
+      <result property="USUARIOMODIFICADOR" column="USUARIOMODIFICADOR"/>
+      <result property="FECHAULTIMAMODIFICACION" column="FECHAULTIMAMODIFICACION"/>
+      <result property="IDPROPIETARIO" column="IDPROPIETARIO"/>
+      <result property="TIPOPROPIETARIO" column="TIPOPROPIETARIO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_ENCUESTA" resultMap="ResultDaoCW_ENCUESTA">
+      SELECT * FROM CW_ENCUESTA
+    </select>
+
+    <select id="FindDaoCW_ENCUESTA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE IDENCUESTA = #value#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByIDPLANTILLAENCUESTA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE IDPLANTILLAENCUESTA = #IDPLANTILLAENCUESTA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByNUMEROPAGINAS" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE NUMEROPAGINAS = #NUMEROPAGINAS#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByTITULO" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE TITULO = #TITULO#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByINTRODUCCION" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE INTRODUCCION = #INTRODUCCION#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByMENSAJEPIEPAGINA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByDESCRIPCIONPIEPAGINA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByFECHAINICIOVIGENCIA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE FECHAINICIOVIGENCIA = #FECHAINICIOVIGENCIA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByFECHATERMINOVIGENCIA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE FECHATERMINOVIGENCIA = #FECHATERMINOVIGENCIA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByCUOTALIMITEENCUESTA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE CUOTALIMITEENCUESTA = #CUOTALIMITEENCUESTA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByPRIMERAPAGINACONTENIDA" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE PRIMERAPAGINACONTENIDA = #PRIMERAPAGINACONTENIDA#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByUSUARIOCREADOR" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE USUARIOCREADOR = #USUARIOCREADOR#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByFECHACREACION" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE FECHACREACION = #FECHACREACION#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByUSUARIOMODIFICADOR" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByFECHAULTIMAMODIFICACION" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE FECHAULTIMAMODIFICACION = #FECHAULTIMAMODIFICACION#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByIDPROPIETARIO" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE IDPROPIETARIO = #IDPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_ENCUESTAByTIPOPROPIETARIO" resultMap="ResultDaoCW_ENCUESTA" extends="FindAllDaoCW_ENCUESTA">
+      WHERE TIPOPROPIETARIO = #TIPOPROPIETARIO#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_ENCUESTA" resultMap="ResultDaoCW_ENCUESTA">
+      Select * from CW_ENCUESTA
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDENCUESTA">
+          <isGreaterThan compareValue="0" property="IDENCUESTA">
+            AND IDENCUESTA = #IDENCUESTA#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDPLANTILLAENCUESTA">
+          AND IDPLANTILLAENCUESTA = #IDPLANTILLAENCUESTA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="NUMEROPAGINAS">
+          AND NUMEROPAGINAS = #NUMEROPAGINAS#
+        </isGreaterThan>
+
+        <isNotNull property="TITULO">
+          AND TITULO = #TITULO#
+        </isNotNull>
+
+        <isNotNull property="INTRODUCCION">
+          AND INTRODUCCION = #INTRODUCCION#
+        </isNotNull>
+
+        <isNotNull property="MENSAJEPIEPAGINA">
+          AND MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#
+        </isNotNull>
+
+        <isNotNull property="DESCRIPCIONPIEPAGINA">
+          AND DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#
+        </isNotNull>
+
+
+
+        <isGreaterThan compareValue="0" property="CUOTALIMITEENCUESTA">
+          AND CUOTALIMITEENCUESTA = #CUOTALIMITEENCUESTA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="PRIMERAPAGINACONTENIDA">
+          AND PRIMERAPAGINACONTENIDA = #PRIMERAPAGINACONTENIDA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOCREADOR">
+          AND USUARIOCREADOR = #USUARIOCREADOR#
+        </isGreaterThan>
+
+
+        <isGreaterThan compareValue="0" property="USUARIOMODIFICADOR">
+          AND USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+        </isGreaterThan>
+
+
+        <isGreaterThan compareValue="0" property="IDPROPIETARIO">
+          AND IDPROPIETARIO = #IDPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="TIPOPROPIETARIO">
+          AND TIPOPROPIETARIO = #TIPOPROPIETARIO#
+        </isGreaterThan>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_ENCUESTA" >
+      UPDATE CW_ENCUESTA SET
+      IDPLANTILLAENCUESTA = #IDPLANTILLAENCUESTA#,
+      NUMEROPAGINAS = #NUMEROPAGINAS#,
+      TITULO = #TITULO#,
+      INTRODUCCION = #INTRODUCCION#,
+      MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#,
+      DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#,
+      FECHAINICIOVIGENCIA = #FECHAINICIOVIGENCIA#,
+      FECHATERMINOVIGENCIA = #FECHATERMINOVIGENCIA#,
+      CUOTALIMITEENCUESTA = #CUOTALIMITEENCUESTA#,
+      PRIMERAPAGINACONTENIDA = #PRIMERAPAGINACONTENIDA#,
+      USUARIOCREADOR = #USUARIOCREADOR#,
+      FECHACREACION = #FECHACREACION#,
+      USUARIOMODIFICADOR = #USUARIOMODIFICADOR#,
+      FECHAULTIMAMODIFICACION = #FECHAULTIMAMODIFICACION#,
+      IDPROPIETARIO = #IDPROPIETARIO#,
+      TIPOPROPIETARIO = #TIPOPROPIETARIO#
+      WHERE IDENCUESTA = #IDENCUESTA#
+    </update>
+
+    <delete id="DeleteDaoCW_ENCUESTA" >
+      DELETE FROM CW_ENCUESTA
+      WHERE IDENCUESTA = #IDENCUESTA#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_ENCUESTA" >
+      SELECT MAX(IDENCUESTA) + 1 FROM CW_ENCUESTA
+    </select>
+
+    <insert id="CreateDaoCW_ENCUESTA" parameterClass="DaoCW_ENCUESTA">
+      INSERT INTO CW_ENCUESTA (
+      IDPLANTILLAENCUESTA,
+      NUMEROPAGINAS,
+      TITULO,
+      INTRODUCCION,
+      MENSAJEPIEPAGINA,
+      DESCRIPCIONPIEPAGINA,
+      FECHAINICIOVIGENCIA,
+      FECHATERMINOVIGENCIA,
+      CUOTALIMITEENCUESTA,
+      PRIMERAPAGINACONTENIDA,
+      USUARIOCREADOR,
+      FECHACREACION,
+      USUARIOMODIFICADOR,
+      FECHAULTIMAMODIFICACION,
+      IDPROPIETARIO,
+      TIPOPROPIETARIO)
+      VALUES(
+      #IDPLANTILLAENCUESTA#,
+      #NUMEROPAGINAS#,
+      #TITULO#,
+      #INTRODUCCION#,
+      #MENSAJEPIEPAGINA#,
+      #DESCRIPCIONPIEPAGINA#,
+      #FECHAINICIOVIGENCIA#,
+      #FECHATERMINOVIGENCIA#,
+      #CUOTALIMITEENCUESTA#,
+      #PRIMERAPAGINACONTENIDA#,
+      #USUARIOCREADOR#,
+      #FECHACREACION#,
+      #USUARIOMODIFICADOR#,
+      #FECHAULTIMAMODIFICACION#,
+      #IDPROPIETARIO#,
+      #TIPOPROPIETARIO#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

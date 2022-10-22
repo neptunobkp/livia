@@ -1,0 +1,212 @@
+<sqlMap namespace="DaoCW_PREGUNTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_PREGUNTA" class="DaoCW_PREGUNTA">
+      <result property="IDPREGUNTA" column="IDPREGUNTA"/>
+      <result property="GLOSAPREGUNTA" column="GLOSAPREGUNTA"/>
+      <result property="NOTAADICIONALPREGUNTA" column="NOTAADICIONALPREGUNTA"/>
+      <result property="NOTAADICIONALFINALPREGUNTA" column="NOTAADICIONALFINALPREGUNTA"/>
+      <result property="TIPOPREGUNTA" column="TIPOPREGUNTA"/>
+      <result property="CODIGOIDENTIFICADOR" column="CODIGOIDENTIFICADOR"/>
+      <result property="OTRAOPCION" column="OTRAOPCION"/>
+      <result property="PRESENTARALEATORIAMENTE" column="PRESENTARALEATORIAMENTE"/>
+      <result property="CANTIDADCOLUMNASPRESENTACION" column="CANTIDADCOLUMNASPRESENTACION"/>
+      <result property="LIMITEMAXIMOSELECCIONABLES" column="LIMITEMAXIMOSELECCIONABLES"/>
+      <result property="LIMITEMINIMOSELECCIONABLES" column="LIMITEMINIMOSELECCIONABLES"/>
+      <result property="PRESENTARENCOMBOBOX" column="PRESENTARENCOMBOBOX"/>
+      <result property="PRESENTARHORIZONTAL" column="PRESENTARHORIZONTAL"/>
+      <result property="IDPAGINA" column="IDPAGINA"/>
+      <result property="NUMEROPAGINA" column="NUMEROPAGINA"/>
+      <result property="OBLIGATORIO" column="OBLIGATORIO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_PREGUNTA" resultMap="ResultDaoCW_PREGUNTA">
+      SELECT * FROM CW_PREGUNTA
+    </select>
+
+    <select id="FindDaoCW_PREGUNTA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE IDPREGUNTA = #value#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByGLOSAPREGUNTA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE GLOSAPREGUNTA = #GLOSAPREGUNTA#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByNOTAADICIONALPREGUNTA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE NOTAADICIONALPREGUNTA = #NOTAADICIONALPREGUNTA#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByNOTAADICIONALFINALPREGUNTA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE NOTAADICIONALFINALPREGUNTA = #NOTAADICIONALFINALPREGUNTA#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByTIPOPREGUNTA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE TIPOPREGUNTA = #TIPOPREGUNTA#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByCODIGOIDENTIFICADOR" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE CODIGOIDENTIFICADOR = #CODIGOIDENTIFICADOR#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByOTRAOPCION" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE OTRAOPCION = #OTRAOPCION#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByPRESENTARALEATORIAMENTE" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE PRESENTARALEATORIAMENTE = #PRESENTARALEATORIAMENTE#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByCANTIDADCOLUMNASPRESENTACION" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE CANTIDADCOLUMNASPRESENTACION = #CANTIDADCOLUMNASPRESENTACION#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByLIMITEMAXIMOSELECCIONABLES" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE LIMITEMAXIMOSELECCIONABLES = #LIMITEMAXIMOSELECCIONABLES#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByLIMITEMINIMOSELECCIONABLES" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE LIMITEMINIMOSELECCIONABLES = #LIMITEMINIMOSELECCIONABLES#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByPRESENTARENCOMBOBOX" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE PRESENTARENCOMBOBOX = #PRESENTARENCOMBOBOX#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByPRESENTARHORIZONTAL" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE PRESENTARHORIZONTAL = #PRESENTARHORIZONTAL#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByIDPAGINA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE IDPAGINA = #IDPAGINA#
+    </select>
+    <select id="FindDaoCW_PREGUNTAByNUMEROPAGINA" resultMap="ResultDaoCW_PREGUNTA" extends="FindAllDaoCW_PREGUNTA">
+      WHERE NUMEROPAGINA = #NUMEROPAGINA#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_PREGUNTA" resultMap="ResultDaoCW_PREGUNTA">
+      Select * from CW_PREGUNTA
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDPREGUNTA">
+          <isGreaterThan compareValue="0" property="IDPREGUNTA">
+            AND IDPREGUNTA = #IDPREGUNTA#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isNotNull property="GLOSAPREGUNTA">
+          AND GLOSAPREGUNTA = #GLOSAPREGUNTA#
+        </isNotNull>
+
+        <isNotNull property="NOTAADICIONALPREGUNTA">
+          AND NOTAADICIONALPREGUNTA = #NOTAADICIONALPREGUNTA#
+        </isNotNull>
+
+        <isNotNull property="NOTAADICIONALFINALPREGUNTA">
+          AND NOTAADICIONALFINALPREGUNTA = #NOTAADICIONALFINALPREGUNTA#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="TIPOPREGUNTA">
+          AND TIPOPREGUNTA = #TIPOPREGUNTA#
+        </isGreaterThan>
+
+        <isNotNull property="CODIGOIDENTIFICADOR">
+          AND CODIGOIDENTIFICADOR = #CODIGOIDENTIFICADOR#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="OTRAOPCION">
+          AND OTRAOPCION = #OTRAOPCION#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="PRESENTARALEATORIAMENTE">
+          AND PRESENTARALEATORIAMENTE = #PRESENTARALEATORIAMENTE#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="CANTIDADCOLUMNASPRESENTACION">
+          AND CANTIDADCOLUMNASPRESENTACION = #CANTIDADCOLUMNASPRESENTACION#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="LIMITEMAXIMOSELECCIONABLES">
+          AND LIMITEMAXIMOSELECCIONABLES = #LIMITEMAXIMOSELECCIONABLES#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="LIMITEMINIMOSELECCIONABLES">
+          AND LIMITEMINIMOSELECCIONABLES = #LIMITEMINIMOSELECCIONABLES#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="PRESENTARENCOMBOBOX">
+          AND PRESENTARENCOMBOBOX = #PRESENTARENCOMBOBOX#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="PRESENTARHORIZONTAL">
+          AND PRESENTARHORIZONTAL = #PRESENTARHORIZONTAL#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="IDPAGINA">
+          AND IDPAGINA = #IDPAGINA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="NUMEROPAGINA">
+          AND NUMEROPAGINA = #NUMEROPAGINA#
+        </isGreaterThan>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_PREGUNTA" >
+      UPDATE CW_PREGUNTA SET
+      GLOSAPREGUNTA = #GLOSAPREGUNTA#,
+      NOTAADICIONALPREGUNTA = #NOTAADICIONALPREGUNTA#,
+      NOTAADICIONALFINALPREGUNTA = #NOTAADICIONALFINALPREGUNTA#,
+      TIPOPREGUNTA = #TIPOPREGUNTA#,
+      CODIGOIDENTIFICADOR = #CODIGOIDENTIFICADOR#,
+      OTRAOPCION = #OTRAOPCION#,
+      PRESENTARALEATORIAMENTE = #PRESENTARALEATORIAMENTE#,
+      CANTIDADCOLUMNASPRESENTACION = #CANTIDADCOLUMNASPRESENTACION#,
+      LIMITEMAXIMOSELECCIONABLES = #LIMITEMAXIMOSELECCIONABLES#,
+      LIMITEMINIMOSELECCIONABLES = #LIMITEMINIMOSELECCIONABLES#,
+      PRESENTARENCOMBOBOX = #PRESENTARENCOMBOBOX#,
+      PRESENTARHORIZONTAL = #PRESENTARHORIZONTAL#,
+      IDPAGINA = #IDPAGINA#,
+      NUMEROPAGINA = #NUMEROPAGINA#
+      WHERE IDPREGUNTA = #IDPREGUNTA#
+    </update>
+
+    <delete id="DeleteDaoCW_PREGUNTA" >
+      DELETE FROM CW_PREGUNTA
+      WHERE IDPREGUNTA = #IDPREGUNTA#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_PREGUNTA" >
+      SELECT MAX(IDPREGUNTA) + 1 FROM CW_PREGUNTA
+    </select>
+
+    <insert id="CreateDaoCW_PREGUNTA" parameterClass="DaoCW_PREGUNTA">
+      INSERT INTO CW_PREGUNTA (
+      GLOSAPREGUNTA,
+      NOTAADICIONALPREGUNTA,
+      NOTAADICIONALFINALPREGUNTA,
+      TIPOPREGUNTA,
+      CODIGOIDENTIFICADOR,
+      OTRAOPCION,
+      PRESENTARALEATORIAMENTE,
+      CANTIDADCOLUMNASPRESENTACION,
+      LIMITEMAXIMOSELECCIONABLES,
+      LIMITEMINIMOSELECCIONABLES,
+      PRESENTARENCOMBOBOX,
+      PRESENTARHORIZONTAL,
+      IDPAGINA,
+      NUMEROPAGINA,
+      OBLIGATORIO)
+      VALUES(
+      #GLOSAPREGUNTA#,
+      #NOTAADICIONALPREGUNTA#,
+      #NOTAADICIONALFINALPREGUNTA#,
+      #TIPOPREGUNTA#,
+      #CODIGOIDENTIFICADOR#,
+      #OTRAOPCION#,
+      #PRESENTARALEATORIAMENTE#,
+      #CANTIDADCOLUMNASPRESENTACION#,
+      #LIMITEMAXIMOSELECCIONABLES#,
+      #LIMITEMINIMOSELECCIONABLES#,
+      #PRESENTARENCOMBOBOX#,
+      #PRESENTARHORIZONTAL#,
+      #IDPAGINA#,
+      #NUMEROPAGINA#,
+      #OBLIGATORIO#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

@@ -1,0 +1,88 @@
+<sqlMap namespace="DaoCW_CATALOGOPARAMETROS"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ 
+<resultMaps>
+	<resultMap id="ResultDaoCW_CATALOGOPARAMETROS" class="DaoCW_CATALOGOPARAMETROS">
+		<result property="IDCATALOGOPARAMETRO" column="IDCATALOGOPARAMETRO"/>
+		<result property="NOMBRE" column="NOMBRE"/>
+		<result property="TIPOESTADOENTIDAD" column="TIPOESTADOENTIDAD"/>
+		<result property="CODIGO" column="CODIGO"/>
+	</resultMap>
+</resultMaps>
+
+
+<statements>
+	<select id="FindAllDaoCW_CATALOGOPARAMETROS" resultMap="ResultDaoCW_CATALOGOPARAMETROS">
+		 SELECT * FROM CW_CATALOGOPARAMETROS
+	</select>
+
+	<select id="FindDaoCW_CATALOGOPARAMETROS" resultMap="ResultDaoCW_CATALOGOPARAMETROS" extends="FindAllDaoCW_CATALOGOPARAMETROS">
+		WHERE IDCATALOGOPARAMETRO = #value#
+	</select>
+	<select id="FindDaoCW_CATALOGOPARAMETROSByNOMBRE" resultMap="ResultDaoCW_CATALOGOPARAMETROS" extends="FindAllDaoCW_CATALOGOPARAMETROS">
+		WHERE NOMBRE = #NOMBRE#
+	</select>
+	<select id="FindDaoCW_CATALOGOPARAMETROSByTIPOESTADOENTIDAD" resultMap="ResultDaoCW_CATALOGOPARAMETROS" extends="FindAllDaoCW_CATALOGOPARAMETROS">
+		WHERE TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+	</select>
+	<select id="FindDaoCW_CATALOGOPARAMETROSByCODIGO" resultMap="ResultDaoCW_CATALOGOPARAMETROS" extends="FindAllDaoCW_CATALOGOPARAMETROS">
+		WHERE CODIGO = #CODIGO#
+	</select>
+
+	<select id="FindByOne" parameterClass="DaoCW_CATALOGOPARAMETROS" resultMap="ResultDaoCW_CATALOGOPARAMETROS">
+		Select * from CW_CATALOGOPARAMETROS
+		<dynamic prepend="WHERE 1 = 1">
+							<isNotNull property="IDCATALOGOPARAMETRO">
+				<isGreaterThan compareValue="0" property="IDCATALOGOPARAMETRO">
+					AND IDCATALOGOPARAMETRO = #IDCATALOGOPARAMETRO#
+				</isGreaterThan>
+
+			</isNotNull>
+
+							<isNotNull property="NOMBRE">
+					AND NOMBRE = #NOMBRE#
+			</isNotNull>
+
+								<isGreaterThan compareValue="0" property="TIPOESTADOENTIDAD">
+					AND TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+				</isGreaterThan>
+
+							<isNotNull property="CODIGO">
+					AND CODIGO = #CODIGO#
+			</isNotNull>
+
+			</dynamic>
+	</select>
+
+<update id="UpdateDaoCW_CATALOGOPARAMETROS" >
+	UPDATE CW_CATALOGOPARAMETROS SET 
+		NOMBRE = #NOMBRE#,
+		TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#,
+		CODIGO = #CODIGO#
+	WHERE IDCATALOGOPARAMETRO = #IDCATALOGOPARAMETRO#
+</update>
+
+<delete id="DeleteDaoCW_CATALOGOPARAMETROS" >
+	DELETE FROM CW_CATALOGOPARAMETROS
+	WHERE IDCATALOGOPARAMETRO = #IDCATALOGOPARAMETRO#
+</delete>
+
+<select id="GetMaxIdDaoCW_CATALOGOPARAMETROS" >
+SELECT MAX(IDCATALOGOPARAMETRO) + 1 FROM CW_CATALOGOPARAMETROS 
+</select>
+
+<insert id="CreateDaoCW_CATALOGOPARAMETROS" parameterClass="DaoCW_CATALOGOPARAMETROS">
+	INSERT INTO CW_CATALOGOPARAMETROS (
+		NOMBRE,
+		TIPOESTADOENTIDAD,
+		CODIGO)
+	VALUES(
+		#NOMBRE#,
+		#TIPOESTADOENTIDAD#,
+		#CODIGO#)
+</insert>
+
+</statements>
+
+</sqlMap>

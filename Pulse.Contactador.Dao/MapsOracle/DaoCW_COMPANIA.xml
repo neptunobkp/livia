@@ -1,0 +1,94 @@
+<sqlMap namespace="DaoCW_COMPANIA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ 
+<resultMaps>
+	<resultMap id="ResultDaoCW_COMPANIA" class="DaoCW_COMPANIA">
+		<result property="IDCOMPANIA" column="IDCOMPANIA"/>
+		<result property="RUT" column="RUT"/>
+		<result property="RAZONSOCIAL" column="RAZONSOCIAL"/>
+		<result property="TIPOESTADOENTIDAD" column="TIPOESTADOENTIDAD"/>
+    
+	</resultMap>
+</resultMaps>
+
+
+<statements>
+	<select id="FindAllDaoCW_COMPANIA" resultMap="ResultDaoCW_COMPANIA">
+		 SELECT * FROM CW_COMPANIA
+	</select>
+
+	<select id="FindDaoCW_COMPANIA" resultMap="ResultDaoCW_COMPANIA" extends="FindAllDaoCW_COMPANIA">
+		WHERE IDCOMPANIA = #value#
+	</select>
+	<select id="FindDaoCW_COMPANIAByRUT" resultMap="ResultDaoCW_COMPANIA" extends="FindAllDaoCW_COMPANIA">
+		WHERE RUT = #RUT#
+	</select>
+	<select id="FindDaoCW_COMPANIAByRAZONSOCIAL" resultMap="ResultDaoCW_COMPANIA" extends="FindAllDaoCW_COMPANIA">
+		WHERE RAZONSOCIAL = #RAZONSOCIAL#
+	</select>
+	<select id="FindDaoCW_COMPANIAByTIPOESTADOENTIDAD" resultMap="ResultDaoCW_COMPANIA" extends="FindAllDaoCW_COMPANIA">
+		WHERE TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+	</select>
+
+	<select id="FindByOne" parameterClass="DaoCW_COMPANIA" resultMap="ResultDaoCW_COMPANIA">
+		Select * from CW_COMPANIA
+		<dynamic prepend="WHERE 1 = 1">
+							<isNotNull property="IDCOMPANIA">
+				<isGreaterThan compareValue="0" property="IDCOMPANIA">
+					AND IDCOMPANIA = #IDCOMPANIA#
+				</isGreaterThan>
+
+			</isNotNull>
+
+								<isGreaterThan compareValue="0" property="RUT">
+					AND RUT = #RUT#
+				</isGreaterThan>
+
+							<isNotNull property="RAZONSOCIAL">
+					AND RAZONSOCIAL = #RAZONSOCIAL#
+			</isNotNull>
+
+								<isGreaterThan compareValue="0" property="TIPOESTADOENTIDAD">
+					AND TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+				</isGreaterThan>
+
+			</dynamic>
+	</select>
+
+<update id="UpdateDaoCW_COMPANIA" >
+	UPDATE CW_COMPANIA SET 
+		RUT = #RUT#,
+		RAZONSOCIAL = #RAZONSOCIAL#,
+		TIPOESTADOENTIDAD = #TIPOESTADOENTIDAD#
+	WHERE IDCOMPANIA = #IDCOMPANIA#
+</update>
+
+<delete id="DeleteDaoCW_COMPANIA" >
+	DELETE FROM CW_COMPANIA
+	WHERE IDCOMPANIA = #IDCOMPANIA#
+</delete>
+
+<select id="GetMaxIdDaoCW_COMPANIA" >
+SELECT MAX(IDCOMPANIA) + 1 FROM CW_COMPANIA 
+</select>
+
+<insert id="CreateDaoCW_COMPANIA" parameterClass="DaoCW_COMPANIA">
+	<selectKey resultClass="int" type="pre" property="IDCOMPANIA" >
+		SELECT CW_COMPANIA_SEQ.NEXTVAL AS VALUE FROM DUAL
+	</selectKey>
+	INSERT INTO CW_COMPANIA (
+		IDCOMPANIA,
+		RUT,
+		RAZONSOCIAL,
+		TIPOESTADOENTIDAD)
+	VALUES(
+		#IDCOMPANIA#,
+		#RUT#,
+		#RAZONSOCIAL#,
+		#TIPOESTADOENTIDAD#)
+</insert>
+
+</statements>
+
+</sqlMap>

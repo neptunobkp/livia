@@ -1,0 +1,155 @@
+<sqlMap namespace="DaoCW_ITEMCORREODESTINO"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_ITEMCORREODESTINO" class="DaoCW_ITEMCORREODESTINO">
+      <result property="IDITEMCORREODESTINO" column="IDITEMCORREODESTINO"/>
+      <result property="RUTDESTINATARIO" column="RUTDESTINATARIO"/>
+      <result property="IDENTIFICADORRELACIONALORIGEN" column="IDENTIFICADORRELACIONALORIGEN"/>
+      <result property="IDMENSAJECORREO" column="IDMENSAJECORREO"/>
+      <result property="PARAMETROSENCADENABLES" column="PARAMETROSENCADENABLES"/>
+      <result property="ARCHIVOSENVIABLES" column="ARCHIVOSENVIABLES"/>
+      <result property="TIPOESTADOENVIO" column="TIPOESTADOENVIO"/>
+      <result property="ANOTACION" column="ANOTACION"/>
+      <result property="NOMBREDESTINATARIO" column="NOMBREDESTINATARIO"/>
+      <result property="CORREODESTINATARIO" column="CORREODESTINATARIO"/>
+      <result property="IDLISTACORREO" column="IDLISTACORREO"/>
+      <result property="FECHAENVIO" column="FECHAENVIO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_ITEMCORREODESTINO" resultMap="ResultDaoCW_ITEMCORREODESTINO">
+      SELECT * FROM CW_ITEMCORREODESTINO
+    </select>
+
+    <select id="FindByListaCorreoId" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE IDLISTACORREO = #value#
+    </select>
+
+    <select id="FindDaoCW_ITEMCORREODESTINO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE IDITEMCORREODESTINO = #value#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByRUTDESTINATARIO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE RUTDESTINATARIO = #RUTDESTINATARIO#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByIDENTIFICADORRELACIONALORIGEN" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE IDENTIFICADORRELACIONALORIGEN = #IDENTIFICADORRELACIONALORIGEN#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByIDMENSAJECORREO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE IDMENSAJECORREO = #IDMENSAJECORREO#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByPARAMETROSENCADENABLES" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE PARAMETROSENCADENABLES = #PARAMETROSENCADENABLES#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByARCHIVOSENVIABLES" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE ARCHIVOSENVIABLES = #ARCHIVOSENVIABLES#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByTIPOESTADOENVIO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE TIPOESTADOENVIO = #TIPOESTADOENVIO#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByANOTACION" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE ANOTACION = #ANOTACION#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByNOMBREDESTINATARIO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE NOMBREDESTINATARIO = #NOMBREDESTINATARIO#
+    </select>
+    <select id="FindDaoCW_ITEMCORREODESTINOByCORREODESTINATARIO" resultMap="ResultDaoCW_ITEMCORREODESTINO" extends="FindAllDaoCW_ITEMCORREODESTINO">
+      WHERE CORREODESTINATARIO = #CORREODESTINATARIO#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_ITEMCORREODESTINO" resultMap="ResultDaoCW_ITEMCORREODESTINO">
+      Select * from CW_ITEMCORREODESTINO
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDITEMCORREODESTINO">
+          <isGreaterThan compareValue="0" property="IDITEMCORREODESTINO">
+            AND IDITEMCORREODESTINO = #IDITEMCORREODESTINO#
+          </isGreaterThan>
+        </isNotNull>
+        <isGreaterThan compareValue="0" property="RUTDESTINATARIO">
+          AND RUTDESTINATARIO = #RUTDESTINATARIO#
+        </isGreaterThan>
+        <isGreaterThan compareValue="0" property="IDENTIFICADORRELACIONALORIGEN">
+          AND IDENTIFICADORRELACIONALORIGEN = #IDENTIFICADORRELACIONALORIGEN#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="IDMENSAJECORREO">
+          AND IDMENSAJECORREO = #IDMENSAJECORREO#
+        </isGreaterThan>
+
+        <isNotNull property="PARAMETROSENCADENABLES">
+          AND PARAMETROSENCADENABLES = #PARAMETROSENCADENABLES#
+        </isNotNull>
+
+        <isNotNull property="ARCHIVOSENVIABLES">
+          AND ARCHIVOSENVIABLES = #ARCHIVOSENVIABLES#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="TIPOESTADOENVIO">
+          AND TIPOESTADOENVIO = #TIPOESTADOENVIO#
+        </isGreaterThan>
+
+        <isNotNull property="ANOTACION">
+          AND ANOTACION = #ANOTACION#
+        </isNotNull>
+
+        <isNotNull property="NOMBREDESTINATARIO">
+          AND NOMBREDESTINATARIO = #NOMBREDESTINATARIO#
+        </isNotNull>
+
+        <isNotNull property="CORREODESTINATARIO">
+          AND CORREODESTINATARIO = #CORREODESTINATARIO#
+        </isNotNull>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_ITEMCORREODESTINO" >
+      UPDATE CW_ITEMCORREODESTINO SET
+      TIPOESTADOENVIO = #TIPOESTADOENVIO#,
+      ANOTACION = #ANOTACION#,
+      FECHAENVIO = #FECHAENVIO#
+      WHERE IDITEMCORREODESTINO = #IDITEMCORREODESTINO#
+    </update>
+
+    <delete id="DeleteDaoCW_ITEMCORREODESTINO" >
+      DELETE FROM CW_ITEMCORREODESTINO
+      WHERE IDITEMCORREODESTINO = #IDITEMCORREODESTINO#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_ITEMCORREODESTINO" >
+      SELECT MAX(IDITEMCORREODESTINO) + 1 FROM CW_ITEMCORREODESTINO
+    </select>
+
+    <insert id="CreateDaoCW_ITEMCORREODESTINO" parameterClass="DaoCW_ITEMCORREODESTINO">
+      INSERT INTO CW_ITEMCORREODESTINO (
+      RUTDESTINATARIO,
+      IDENTIFICADORRELACIONALORIGEN,
+      IDMENSAJECORREO,
+      PARAMETROSENCADENABLES,
+      ARCHIVOSENVIABLES,
+      TIPOESTADOENVIO,
+      ANOTACION,
+      NOMBREDESTINATARIO,
+      CORREODESTINATARIO,
+      IDLISTACORREO,
+      FECHAENVIO)
+      VALUES(
+      #RUTDESTINATARIO#,
+      #IDENTIFICADORRELACIONALORIGEN#,
+      #IDMENSAJECORREO#,
+      #PARAMETROSENCADENABLES#,
+      #ARCHIVOSENVIABLES#,
+      #TIPOESTADOENVIO#,
+      #ANOTACION#,
+      #NOMBREDESTINATARIO#,
+      #CORREODESTINATARIO#,
+      #IDLISTACORREO#,
+      #FECHAENVIO#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

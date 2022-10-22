@@ -1,0 +1,36 @@
+<sqlMap namespace="GrupoEncuestado"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultGrupoEncuestado" class="GrupoEncuestado">
+      <result property="Id" column="IDGRUPO"/>
+      <result property="Nombre" column="NOMBRE"/>
+      <result property="Estado" column="ESTADO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultGrupoEncuestado">
+      SELECT * FROM CW_GRUPOS
+    </select>
+
+    <select id="FindByNombre" resultMap="ResultGrupoEncuestado" extends="FindAll">
+      WHERE Nombre = #value#
+    </select>
+
+    <insert id="Create" parameterClass="GrupoEncuestado">
+      INSERT INTO CW_GRUPOS (
+      NOMBRE,
+      ESTADO)
+      VALUES(
+      #Nombre#,
+      #Estado#)
+    </insert>
+
+
+
+  </statements>
+
+</sqlMap>

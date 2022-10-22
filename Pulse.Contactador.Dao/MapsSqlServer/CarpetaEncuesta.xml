@@ -1,0 +1,39 @@
+<sqlMap namespace="CarpetaEncuesta"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultCarpetaEncuesta" class="CarpetaEncuesta">
+      <result property="Id" column="IDCARPETAENCUESTA"/>
+      <result property="Nombre" column="NOMBRE"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultCarpetaEncuesta">
+      SELECT * FROM CW_CARPETAENCUESTA
+    </select>
+
+    <select id="FindCarpetaEncuesta" resultMap="ResultCarpetaEncuesta" extends="FindAll">
+      WHERE IDCARPETAENCUESTA = #value#
+    </select>
+
+    <insert id="Create" parameterClass="CarpetaEncuesta">
+      INSERT INTO CW_CARPETAENCUESTA (
+      IDCARPETAENCUESTA,
+      NOMBRE)
+      VALUES(
+      #Nombre#)
+    </insert>
+
+    <update id="UpdateCarpetaEncuesta" >
+      UPDATE CW_CARPETAENCUESTA SET
+      NOMBRE = #Nombre#
+      WHERE IDCARPETAENCUESTA = #Id#
+    </update>
+
+
+  </statements>
+
+</sqlMap>

@@ -1,0 +1,197 @@
+<sqlMap namespace="DaoCW_CAMPANIAS"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_CAMPANIAS" class="DaoCW_CAMPANIAS">
+      <result property="IDCAMPANIA" column="IDCAMPANIA"/>
+      <result property="IDENCUESTA" column="IDENCUESTA"/>
+      <result property="FECHAENVIOESPERADO" column="FECHAENVIOESPERADO"/>
+      <result property="IDCONTROLADORENVIO" column="IDCONTROLADORENVIO"/>
+      <result property="GLOSAMOTIVOENVIO" column="GLOSAMOTIVOENVIO"/>
+      <result property="VALORMOTIVOENVIO" column="VALORMOTIVOENVIO"/>
+      <result property="NOMBRE" column="NOMBRE"/>
+      <result property="IDPROPIETARIO" column="IDPROPIETARIO"/>
+      <result property="TIPOPROPIETARIO" column="TIPOPROPIETARIO"/>
+      <result property="USUARIOCREADOR" column="USUARIOCREADOR"/>
+      <result property="USUARIOMODIFICADOR" column="USUARIOMODIFICADOR"/>
+      <result property="FECHACREACION" column="FECHACREACION"/>
+      <result property="FECHAMODIFICACION" column="FECHAMODIFICACION"/>
+      <result property="URLENCUESTA" column="URLENCUESTA"/>
+      <result property="FECHATERMINOESPERADO" column="FECHATERMINOESPERADO"/>
+      <result property="PERIODOEJECUCION" column="PERIODOEJECUCION"/>
+
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_CAMPANIAS" resultMap="ResultDaoCW_CAMPANIAS">
+      SELECT * FROM CW_CAMPANIAS
+    </select>
+
+    <select id="FindDaoCW_CAMPANIAS" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE IDCAMPANIA = #value#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByIDENCUESTA" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE IDENCUESTA = #IDENCUESTA#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByFECHAENVIOESPERADO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE FECHAENVIOESPERADO = #FECHAENVIOESPERADO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByIDCONTROLADORENVIO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE IDCONTROLADORENVIO = #IDCONTROLADORENVIO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByGLOSAMOTIVOENVIO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE GLOSAMOTIVOENVIO = #GLOSAMOTIVOENVIO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByVALORMOTIVOENVIO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE VALORMOTIVOENVIO = #VALORMOTIVOENVIO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByNOMBRE" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE NOMBRE = #NOMBRE#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByIDPROPIETARIO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE IDPROPIETARIO = #IDPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByTIPOPROPIETARIO" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE TIPOPROPIETARIO = #TIPOPROPIETARIO#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByUSUARIOCREADOR" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE USUARIOCREADOR = #USUARIOCREADOR#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByUSUARIOMODIFICADOR" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByFECHACREACION" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE FECHACREACION = #FECHACREACION#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByFECHAMODIFICACION" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE FECHAMODIFICACION = #FECHAMODIFICACION#
+    </select>
+    <select id="FindDaoCW_CAMPANIASByURLENCUESTA" resultMap="ResultDaoCW_CAMPANIAS" extends="FindAllDaoCW_CAMPANIAS">
+      WHERE URLENCUESTA = #URLENCUESTA#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_CAMPANIAS" resultMap="ResultDaoCW_CAMPANIAS">
+      Select * from CW_CAMPANIAS
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDCAMPANIA">
+          <isGreaterThan compareValue="0" property="IDCAMPANIA">
+            AND IDCAMPANIA = #IDCAMPANIA#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDENCUESTA">
+          AND IDENCUESTA = #IDENCUESTA#
+        </isGreaterThan>
+
+
+        <isGreaterThan compareValue="0" property="IDCONTROLADORENVIO">
+          AND IDCONTROLADORENVIO = #IDCONTROLADORENVIO#
+        </isGreaterThan>
+
+        <isNotNull property="GLOSAMOTIVOENVIO">
+          AND GLOSAMOTIVOENVIO = #GLOSAMOTIVOENVIO#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="VALORMOTIVOENVIO">
+          AND VALORMOTIVOENVIO = #VALORMOTIVOENVIO#
+        </isGreaterThan>
+
+        <isNotNull property="NOMBRE">
+          AND NOMBRE = #NOMBRE#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDPROPIETARIO">
+          AND IDPROPIETARIO = #IDPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="TIPOPROPIETARIO">
+          AND TIPOPROPIETARIO = #TIPOPROPIETARIO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOCREADOR">
+          AND USUARIOCREADOR = #USUARIOCREADOR#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="USUARIOMODIFICADOR">
+          AND USUARIOMODIFICADOR = #USUARIOMODIFICADOR#
+        </isGreaterThan>
+
+
+
+        <isNotNull property="URLENCUESTA">
+          AND URLENCUESTA = #URLENCUESTA#
+        </isNotNull>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_CAMPANIAS" >
+      UPDATE CW_CAMPANIAS SET
+      IDENCUESTA = #IDENCUESTA#,
+      FECHAENVIOESPERADO = #FECHAENVIOESPERADO#,
+      IDCONTROLADORENVIO = #IDCONTROLADORENVIO#,
+      GLOSAMOTIVOENVIO = #GLOSAMOTIVOENVIO#,
+      VALORMOTIVOENVIO = #VALORMOTIVOENVIO#,
+      NOMBRE = #NOMBRE#,
+      IDPROPIETARIO = #IDPROPIETARIO#,
+      TIPOPROPIETARIO = #TIPOPROPIETARIO#,
+      USUARIOCREADOR = #USUARIOCREADOR#,
+      USUARIOMODIFICADOR = #USUARIOMODIFICADOR#,
+      FECHACREACION = #FECHACREACION#,
+      FECHAMODIFICACION = #FECHAMODIFICACION#,
+      URLENCUESTA = #URLENCUESTA#
+      WHERE IDCAMPANIA = #IDCAMPANIA#
+    </update>
+
+    <delete id="DeleteDaoCW_CAMPANIAS" >
+      DELETE FROM CW_CAMPANIAS
+      WHERE IDCAMPANIA = #IDCAMPANIA#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_CAMPANIAS" >
+      SELECT MAX(IDCAMPANIA) + 1 FROM CW_CAMPANIAS
+    </select>
+
+    <insert id="CreateDaoCW_CAMPANIAS" parameterClass="DaoCW_CAMPANIAS">
+      INSERT INTO CW_CAMPANIAS (
+      IDENCUESTA,
+      FECHAENVIOESPERADO,
+      IDCONTROLADORENVIO,
+      GLOSAMOTIVOENVIO,
+      VALORMOTIVOENVIO,
+      NOMBRE,
+      IDPROPIETARIO,
+      TIPOPROPIETARIO,
+      USUARIOCREADOR,
+      USUARIOMODIFICADOR,
+      FECHACREACION,
+      FECHAMODIFICACION,
+      URLENCUESTA,
+      FECHATERMINOESPERADO,
+      PERIODOEJECUCION
+      )
+      VALUES(
+      #IDENCUESTA#,
+      #FECHAENVIOESPERADO#,
+      #IDCONTROLADORENVIO#,
+      #GLOSAMOTIVOENVIO#,
+      #VALORMOTIVOENVIO#,
+      #NOMBRE#,
+      #IDPROPIETARIO#,
+      #TIPOPROPIETARIO#,
+      #USUARIOCREADOR#,
+      #USUARIOMODIFICADOR#,
+      #FECHACREACION#,
+      #FECHAMODIFICACION#,
+      #URLENCUESTA#,
+      #FECHATERMINOESPERADO#,
+      #PERIODOEJECUCION#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

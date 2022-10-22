@@ -1,0 +1,49 @@
+<sqlMap namespace="RelacionCarpetaEncuesta"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultRelacionCarpetaEncuesta" class="RelacionCarpetaEncuesta">
+      <result property="Id" column="IDRELACIONCARPETAENCUESTA"/>
+      <result property="Encuesta.Id" column="IDENCUESTA"/>
+      <result property="CarpetaEncuesta.Id" column="IDCARPETAENCUESTA"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultRelacionCarpetaEncuesta">
+      SELECT * FROM CW_RELACIONCARPETAENCUESTA
+    </select>
+
+    <select id="FindByCarpetaId" resultMap="ResultRelacionCarpetaEncuesta" extends="FindAll">
+      WHERE IDCARPETAENCUESTA = #value#
+    </select>
+    <select id="Find" resultMap="ResultRelacionCarpetaEncuesta" extends="FindAll">
+      WHERE IDRELACIONCARPETAENCUESTA = #value#
+    </select>
+
+    <insert id="Create" parameterClass="RelacionCarpetaEncuesta">
+      INSERT INTO CW_RELACIONCARPETAENCUESTA (
+      IDENCUESTA,
+      IDCARPETAENCUESTA)
+      VALUES(
+      #Encuesta.Id#,
+      #CarpetaEncuesta.Id#)
+    </insert>
+    <delete id="Delete">
+      DELETE FROM CW_RELACIONCARPETAENCUESTA
+      WHERE IDRELACIONCARPETAENCUESTA = #value#
+
+    </delete>
+    <update id="UpdateItemCarpetaEncuesta" >
+      UPDATE CW_RELACIONCARPETAENCUESTA SET
+      IDENCUESTA = #Encuesta.Id#,
+      IDCARPETAENCUESTA = #CarpetaEncuesta.Id#
+      WHERE IDRELACIONCARPETAENCUESTA = #Id#
+    </update>
+
+
+  </statements>
+
+</sqlMap>

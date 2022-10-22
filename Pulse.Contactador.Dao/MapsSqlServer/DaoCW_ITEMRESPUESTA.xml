@@ -1,0 +1,158 @@
+<sqlMap namespace="DaoCW_ITEMRESPUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_ITEMRESPUESTA" class="DaoCW_ITEMRESPUESTA">
+      <result property="IDITEMRESPUESTA" column="IDITEMRESPUESTA"/>
+      <result property="IDPREGUNTA" column="IDPREGUNTA"/>
+      <result property="GLOSARESPUESTA" column="GLOSARESPUESTA"/>
+      <result property="VALORRESPUESTA" column="VALORRESPUESTA"/>
+      <result property="NUMEROORDEN" column="NUMEROORDEN"/>
+      <result property="VALORTIPOCOLUMNA" column="VALORTIPOCOLUMNA"/>
+      <result property="GLOSATIPOCOLUMNA" column="GLOSATIPOCOLUMNA"/>
+      <result property="TIPOPREGUNTARESPONDIDA" column="TIPOPREGUNTARESPONDIDA"/>
+      <result property="OTRARESPUESTA" column="OTRARESPUESTA"/>
+      <result property="IDRESPUESTA" column="IDRESPUESTA"/>
+
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_ITEMRESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA">
+      SELECT * FROM CW_ITEMRESPUESTA
+    </select>
+
+    <select id="FindDaoCW_ITEMRESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE IDITEMRESPUESTA = #value#
+    </select>
+
+
+    <select id="FindDaoCW_BYIDRESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE IDRESPUESTA = #value#
+    </select>
+
+
+    <select id="FindDaoCW_ITEMRESPUESTAByIDPREGUNTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE IDPREGUNTA = #IDPREGUNTA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByGLOSARESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE GLOSARESPUESTA = #GLOSARESPUESTA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByVALORRESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE VALORRESPUESTA = #VALORRESPUESTA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByNUMEROORDEN" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE NUMEROORDEN = #NUMEROORDEN#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByVALORTIPOCOLUMNA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE VALORTIPOCOLUMNA = #VALORTIPOCOLUMNA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByGLOSATIPOCOLUMNA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE GLOSATIPOCOLUMNA = #GLOSATIPOCOLUMNA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByTIPOPREGUNTARESPONDIDA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE TIPOPREGUNTARESPONDIDA = #TIPOPREGUNTARESPONDIDA#
+    </select>
+    <select id="FindDaoCW_ITEMRESPUESTAByOTRARESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE OTRARESPUESTA = #OTRARESPUESTA#
+    </select>
+
+    <select id="FindDaoCW_ITEMRESPUESTAByPREGUNTAID" resultMap="ResultDaoCW_ITEMRESPUESTA" extends="FindAllDaoCW_ITEMRESPUESTA">
+      WHERE IDPREGUNTA = #value#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_ITEMRESPUESTA" resultMap="ResultDaoCW_ITEMRESPUESTA">
+      Select * from CW_ITEMRESPUESTA
+      <dynamic prepend="WHERE 1 = 1">
+        <isNotNull property="IDITEMRESPUESTA">
+          <isGreaterThan compareValue="0" property="IDITEMRESPUESTA">
+            AND IDITEMRESPUESTA = #IDITEMRESPUESTA#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDPREGUNTA">
+          AND IDPREGUNTA = #IDPREGUNTA#
+        </isGreaterThan>
+
+        <isNotNull property="GLOSARESPUESTA">
+          AND GLOSARESPUESTA = #GLOSARESPUESTA#
+        </isNotNull>
+
+        <isNotNull property="VALORRESPUESTA">
+          AND VALORRESPUESTA = #VALORRESPUESTA#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="NUMEROORDEN">
+          AND NUMEROORDEN = #NUMEROORDEN#
+        </isGreaterThan>
+
+        <isNotNull property="VALORTIPOCOLUMNA">
+          AND VALORTIPOCOLUMNA = #VALORTIPOCOLUMNA#
+        </isNotNull>
+
+        <isNotNull property="GLOSATIPOCOLUMNA">
+          AND GLOSATIPOCOLUMNA = #GLOSATIPOCOLUMNA#
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="TIPOPREGUNTARESPONDIDA">
+          AND TIPOPREGUNTARESPONDIDA = #TIPOPREGUNTARESPONDIDA#
+        </isGreaterThan>
+
+        <isNotNull property="OTRARESPUESTA">
+          AND OTRARESPUESTA = #OTRARESPUESTA#
+        </isNotNull>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_ITEMRESPUESTA" >
+      UPDATE CW_ITEMRESPUESTA SET
+      IDPREGUNTA = #IDPREGUNTA#,
+      GLOSARESPUESTA = #GLOSARESPUESTA#,
+      VALORRESPUESTA = #VALORRESPUESTA#,
+      NUMEROORDEN = #NUMEROORDEN#,
+      VALORTIPOCOLUMNA = #VALORTIPOCOLUMNA#,
+      GLOSATIPOCOLUMNA = #GLOSATIPOCOLUMNA#,
+      TIPOPREGUNTARESPONDIDA = #TIPOPREGUNTARESPONDIDA#,
+      OTRARESPUESTA = #OTRARESPUESTA#
+      WHERE IDITEMRESPUESTA = #IDITEMRESPUESTA#
+    </update>
+
+    <delete id="DeleteDaoCW_ITEMRESPUESTA" >
+      DELETE FROM CW_ITEMRESPUESTA
+      WHERE IDITEMRESPUESTA = #IDITEMRESPUESTA#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_ITEMRESPUESTA" >
+      SELECT MAX(IDITEMRESPUESTA) + 1 FROM CW_ITEMRESPUESTA
+    </select>
+
+    <insert id="CreateDaoCW_ITEMRESPUESTA" parameterClass="DaoCW_ITEMRESPUESTA">
+      INSERT INTO CW_ITEMRESPUESTA (
+      IDPREGUNTA,
+      GLOSARESPUESTA,
+      VALORRESPUESTA,
+      NUMEROORDEN,
+      VALORTIPOCOLUMNA,
+      GLOSATIPOCOLUMNA,
+      TIPOPREGUNTARESPONDIDA,
+      OTRARESPUESTA,
+      IDRESPUESTA)
+      VALUES(
+      #IDPREGUNTA#,
+      #GLOSARESPUESTA#,
+      #VALORRESPUESTA#,
+      #NUMEROORDEN#,
+      #VALORTIPOCOLUMNA#,
+      #GLOSATIPOCOLUMNA#,
+      #TIPOPREGUNTARESPONDIDA#,
+      #OTRARESPUESTA#,
+      #IDRESPUESTA#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

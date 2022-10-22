@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Pulse.Contactador" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="DaoCW_PREGUNTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_PREGUNTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_ITEMPREGUNTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_ITEMPREGUNTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_PAGINAENCUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_PAGINAENCUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_ENCUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_ENCUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_PLANTILLAENCUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_PLANTILLAENCUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_RESPUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_RESPUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_ITEMRESPUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_ITEMRESPUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_CONFSALIDACORREO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_CONFSALIDACORREO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_LISTACORREO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_LISTACORREO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_ITEMCORREODESTINO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_ITEMCORREODESTINO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_CONTROLADORENVIO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_CONTROLADORENVIO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_MENSAJECORREO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_MENSAJECORREO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_CAMPANIAS" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_CAMPANIAS, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_COMPANIA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_COMPANIA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_USUARIOEXTERNO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_USUARIOEXTERNO, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_CATALOGOPARAMETROS" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_CATALOGOPARAMETROS, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_ITEMCATALOGOPARAMETRO" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_ITEMCATALOGOPARAMETRO, Pulse.Contactador.Dao" />
+    <typeAlias alias="EstadoCampania" type="Pulse.Contactador.Dto.EstadoCampania, Pulse.Contactador.Dto" />
+    <typeAlias alias="GrupoEncuestado" type="Pulse.Contactador.Dto.GrupoEncuestado, Pulse.Contactador.Dto" />
+    <typeAlias alias="ItemCarpetaEncuesta" type="Pulse.Contactador.Dto.ItemCarpetaEncuesta, Pulse.Contactador.Dto" />
+    <typeAlias alias="RelacionCarpetaEncuesta" type="Pulse.Contactador.Dto.RelacionCarpetaEncuesta, Pulse.Contactador.Dto" />
+    <typeAlias alias="DaoCW_EVALUADOR" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_EVALUADOR, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_EVALUADORENCUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_EVALUADORENCUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="DaoCW_SEGUIMIENTOENCUESTA" type="Pulse.Contactador.Dao.DaoDataModel.DaoCW_SEGUIMIENTOENCUESTA, Pulse.Contactador.Dao" />
+    <typeAlias alias="CarpetaEncuesta" type="Pulse.Contactador.Dto.CarpetaEncuesta, Pulse.Contactador.Dto" />
+
+    <!--dto direct acces-->
+    <typeAlias alias="DtoCadenaConexion" type="Pulse.Contactador.Dto.CadenaConexion, Pulse.Contactador.Dto" />
+  </alias>
+</sqlMap>

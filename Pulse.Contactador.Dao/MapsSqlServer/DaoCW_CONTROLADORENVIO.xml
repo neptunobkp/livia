@@ -1,0 +1,100 @@
+<sqlMap namespace="DaoCW_CONTROLADORENVIO"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_CONTROLADORENVIO" class="DaoCW_CONTROLADORENVIO">
+      <result property="IDMENSAJECORREOUNICO" column="IDMENSAJECORREOUNICO"/>
+      <result property="IDCONTROLADORENVIO" column="IDCONTROLADORENVIO"/>
+      <result property="IDLISTACORREO" column="IDLISTACORREO"/>
+      <result property="IDCONFIGURACIONSALIDA" column="IDCONFIGURACIONSALIDA"/>
+      <result property="TIPOENVIOCORREO" column="TIPOENVIOCORREO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_CONTROLADORENVIO" resultMap="ResultDaoCW_CONTROLADORENVIO">
+      SELECT * FROM CW_CONTROLADORENVIO
+    </select>
+
+    <select id="FindDaoCW_CONTROLADORENVIOByIDMENSAJECORREOUNICO" resultMap="ResultDaoCW_CONTROLADORENVIO" extends="FindAllDaoCW_CONTROLADORENVIO">
+      WHERE IDMENSAJECORREOUNICO = #IDMENSAJECORREOUNICO#
+    </select>
+    <select id="FindDaoCW_CONTROLADORENVIO" resultMap="ResultDaoCW_CONTROLADORENVIO" extends="FindAllDaoCW_CONTROLADORENVIO">
+      WHERE IDCONTROLADORENVIO = #value#
+    </select>
+    <select id="FindDaoCW_CONTROLADORENVIOByIDLISTACORREO" resultMap="ResultDaoCW_CONTROLADORENVIO" extends="FindAllDaoCW_CONTROLADORENVIO">
+      WHERE IDLISTACORREO = #IDLISTACORREO#
+    </select>
+    <select id="FindDaoCW_CONTROLADORENVIOByIDCONFIGURACIONSALIDA" resultMap="ResultDaoCW_CONTROLADORENVIO" extends="FindAllDaoCW_CONTROLADORENVIO">
+      WHERE IDCONFIGURACIONSALIDA = #IDCONFIGURACIONSALIDA#
+    </select>
+    <select id="FindDaoCW_CONTROLADORENVIOByTIPOENVIOCORREO" resultMap="ResultDaoCW_CONTROLADORENVIO" extends="FindAllDaoCW_CONTROLADORENVIO">
+      WHERE TIPOENVIOCORREO = #TIPOENVIOCORREO#
+    </select>
+
+    <select id="FindByOne" parameterClass="DaoCW_CONTROLADORENVIO" resultMap="ResultDaoCW_CONTROLADORENVIO">
+      Select * from CW_CONTROLADORENVIO
+      <dynamic prepend="WHERE 1 = 1">
+        <isGreaterThan compareValue="0" property="IDMENSAJECORREOUNICO">
+          AND IDMENSAJECORREOUNICO = #IDMENSAJECORREOUNICO#
+        </isGreaterThan>
+
+        <isNotNull property="IDCONTROLADORENVIO">
+          <isGreaterThan compareValue="0" property="IDCONTROLADORENVIO">
+            AND IDCONTROLADORENVIO = #IDCONTROLADORENVIO#
+          </isGreaterThan>
+
+        </isNotNull>
+
+        <isGreaterThan compareValue="0" property="IDLISTACORREO">
+          AND IDLISTACORREO = #IDLISTACORREO#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="IDCONFIGURACIONSALIDA">
+          AND IDCONFIGURACIONSALIDA = #IDCONFIGURACIONSALIDA#
+        </isGreaterThan>
+
+        <isGreaterThan compareValue="0" property="TIPOENVIOCORREO">
+          AND TIPOENVIOCORREO = #TIPOENVIOCORREO#
+        </isGreaterThan>
+
+      </dynamic>
+    </select>
+
+    <update id="UpdateDaoCW_CONTROLADORENVIO" >
+      UPDATE CW_CONTROLADORENVIO SET
+      IDMENSAJECORREOUNICO = #IDMENSAJECORREOUNICO#,
+      IDLISTACORREO = #IDLISTACORREO#,
+      IDCONFIGURACIONSALIDA = #IDCONFIGURACIONSALIDA#,
+      TIPOENVIOCORREO = #TIPOENVIOCORREO#
+      WHERE IDCONTROLADORENVIO = #IDCONTROLADORENVIO#
+    </update>
+
+    <delete id="DeleteDaoCW_CONTROLADORENVIO" >
+      DELETE FROM CW_CONTROLADORENVIO
+      WHERE IDCONTROLADORENVIO = #IDCONTROLADORENVIO#
+    </delete>
+
+    <select id="GetMaxIdDaoCW_CONTROLADORENVIO" >
+      SELECT MAX(IDCONTROLADORENVIO) + 1 FROM CW_CONTROLADORENVIO
+    </select>
+
+    <insert id="CreateDaoCW_CONTROLADORENVIO" parameterClass="DaoCW_CONTROLADORENVIO">
+      INSERT INTO CW_CONTROLADORENVIO (
+      IDMENSAJECORREOUNICO,
+      IDLISTACORREO,
+      IDCONFIGURACIONSALIDA,
+      TIPOENVIOCORREO)
+      VALUES(
+      #IDCONTROLADORENVIO#,
+      #IDMENSAJECORREOUNICO#,
+      #IDLISTACORREO#,
+      #IDCONFIGURACIONSALIDA#,
+      #TIPOENVIOCORREO#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

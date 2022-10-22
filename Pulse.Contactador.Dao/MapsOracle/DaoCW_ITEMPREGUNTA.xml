@@ -1,0 +1,115 @@
+<sqlMap namespace="DaoCW_ITEMPREGUNTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ 
+<resultMaps>
+	<resultMap id="ResultDaoCW_ITEMPREGUNTA" class="DaoCW_ITEMPREGUNTA">
+		<result property="IDITEMPREGUNTA" column="IDITEMPREGUNTA"/>
+		<result property="IDPREGUNTA" column="IDPREGUNTA"/>
+		<result property="TIPOITEMPREGUNTA" column="TIPOITEMPREGUNTA"/>
+		<result property="ORDENCORRELATIVO" column="ORDENCORRELATIVO"/>
+		<result property="VALORINTERNO" column="VALORINTERNO"/>
+		<result property="GLOSA" column="GLOSA"/>
+	</resultMap>
+</resultMaps>
+
+
+<statements>
+	<select id="FindAllDaoCW_ITEMPREGUNTA" resultMap="ResultDaoCW_ITEMPREGUNTA">
+		 SELECT * FROM CW_ITEMPREGUNTA
+	</select>
+
+	<select id="FindDaoCW_ITEMPREGUNTA" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE IDITEMPREGUNTA = #value#
+	</select>
+	<select id="FindDaoCW_ITEMPREGUNTAByIDPREGUNTA" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE IDPREGUNTA = #IDPREGUNTA#
+	</select>
+	<select id="FindDaoCW_ITEMPREGUNTAByTIPOITEMPREGUNTA" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE TIPOITEMPREGUNTA = #TIPOITEMPREGUNTA#
+	</select>
+	<select id="FindDaoCW_ITEMPREGUNTAByORDENCORRELATIVO" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE ORDENCORRELATIVO = #ORDENCORRELATIVO#
+	</select>
+	<select id="FindDaoCW_ITEMPREGUNTAByVALORINTERNO" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE VALORINTERNO = #VALORINTERNO#
+	</select>
+	<select id="FindDaoCW_ITEMPREGUNTAByGLOSA" resultMap="ResultDaoCW_ITEMPREGUNTA" extends="FindAllDaoCW_ITEMPREGUNTA">
+		WHERE GLOSA = #GLOSA#
+	</select>
+
+	<select id="FindByOne" parameterClass="DaoCW_ITEMPREGUNTA" resultMap="ResultDaoCW_ITEMPREGUNTA">
+		Select * from CW_ITEMPREGUNTA
+		<dynamic prepend="WHERE 1 = 1">
+							<isNotNull property="IDITEMPREGUNTA">
+				<isGreaterThan compareValue="0" property="IDITEMPREGUNTA">
+					AND IDITEMPREGUNTA = #IDITEMPREGUNTA#
+				</isGreaterThan>
+
+			</isNotNull>
+
+								<isGreaterThan compareValue="0" property="IDPREGUNTA">
+					AND IDPREGUNTA = #IDPREGUNTA#
+				</isGreaterThan>
+
+								<isGreaterThan compareValue="0" property="TIPOITEMPREGUNTA">
+					AND TIPOITEMPREGUNTA = #TIPOITEMPREGUNTA#
+				</isGreaterThan>
+
+								<isGreaterThan compareValue="0" property="ORDENCORRELATIVO">
+					AND ORDENCORRELATIVO = #ORDENCORRELATIVO#
+				</isGreaterThan>
+
+							<isNotNull property="VALORINTERNO">
+					AND VALORINTERNO = #VALORINTERNO#
+			</isNotNull>
+
+							<isNotNull property="GLOSA">
+					AND GLOSA = #GLOSA#
+			</isNotNull>
+
+			</dynamic>
+	</select>
+
+<update id="UpdateDaoCW_ITEMPREGUNTA" >
+	UPDATE CW_ITEMPREGUNTA SET 
+		IDPREGUNTA = #IDPREGUNTA#,
+		TIPOITEMPREGUNTA = #TIPOITEMPREGUNTA#,
+		ORDENCORRELATIVO = #ORDENCORRELATIVO#,
+		VALORINTERNO = #VALORINTERNO#,
+		GLOSA = #GLOSA#
+	WHERE IDITEMPREGUNTA = #IDITEMPREGUNTA#
+</update>
+
+<delete id="DeleteDaoCW_ITEMPREGUNTA" >
+	DELETE FROM CW_ITEMPREGUNTA
+	WHERE IDITEMPREGUNTA = #IDITEMPREGUNTA#
+</delete>
+
+<select id="GetMaxIdDaoCW_ITEMPREGUNTA" >
+SELECT MAX(IDITEMPREGUNTA) + 1 FROM CW_ITEMPREGUNTA 
+</select>
+
+<insert id="CreateDaoCW_ITEMPREGUNTA" parameterClass="DaoCW_ITEMPREGUNTA">
+	<selectKey resultClass="int" type="pre" property="IDITEMPREGUNTA" >
+		SELECT CW_ITEMPREGUNTA_SEQ.NEXTVAL AS VALUE FROM DUAL
+	</selectKey>
+	INSERT INTO CW_ITEMPREGUNTA (
+		IDITEMPREGUNTA,
+		IDPREGUNTA,
+		TIPOITEMPREGUNTA,
+		ORDENCORRELATIVO,
+		VALORINTERNO,
+		GLOSA)
+	VALUES(
+		#IDITEMPREGUNTA#,
+		#IDPREGUNTA#,
+		#TIPOITEMPREGUNTA#,
+		#ORDENCORRELATIVO#,
+		#VALORINTERNO#,
+		#GLOSA#)
+</insert>
+
+</statements>
+
+</sqlMap>

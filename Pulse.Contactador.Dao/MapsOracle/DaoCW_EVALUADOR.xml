@@ -1,0 +1,55 @@
+<sqlMap namespace="DaoCW_EVALUADOR"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultDaoCW_EVALUADOR" class="DaoCW_EVALUADOR">
+      <result property="IDEVALUADOR" column="IDEVALUADOR"/>
+      <result property="CORREO" column="CORREO"/>
+      <result property="AREA" column="AREA"/>
+      <result property="GERENCIA" column="GERENCIA"/>
+      <result property="NOMBRE" column="NOMBRE"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAllDaoCW_EVALUADOR" resultMap="ResultDaoCW_EVALUADOR">
+      SELECT * FROM CW_EVALUADOR
+    </select>
+
+    <select id="FindDaoCW_EVALUADOR" resultMap="ResultDaoCW_EVALUADOR" extends="FindAllDaoCW_EVALUADOR">
+      WHERE IDEVALUADOR = #value#
+    </select>
+    <select id="FindDaoCW_EVALUADORbyAREA" resultMap="ResultDaoCW_EVALUADOR" extends="FindAllDaoCW_EVALUADOR">
+      WHERE AREA = #value#
+    </select>
+    <select id="FindDaoCW_EVALUADORbyGERENCIA" resultMap="ResultDaoCW_EVALUADOR" extends="FindAllDaoCW_EVALUADOR">
+      WHERE GERENCIA = #value#
+    </select>
+
+    <select id="GetMaxIdDaoCW_EVALUADOR" >
+      SELECT MAX(IDEVALUADOR) + 1 FROM CW_EVALUADOR
+    </select>
+
+    <insert id="CreateDaoCW_EVALUADOR" parameterClass="DaoCW_EVALUADOR">
+      <selectKey resultClass="int" type="pre" property="IDEVALUADOR" >
+        SELECT CW_EVALUADOR_SEQ.NEXTVAL AS VALUE FROM DUAL
+      </selectKey>
+      INSERT INTO CW_EVALUADOR (
+      IDEVALUADOR,
+      CORREO,
+      AREA,
+      GERENCIA,
+      NOMBRE)
+      VALUES(
+      #IDEVALUADOR#,
+      #CORREO#,
+      #AREA#,
+      #GERENCIA#,
+      #NOMBRE#)
+    </insert>
+
+  </statements>
+
+</sqlMap>

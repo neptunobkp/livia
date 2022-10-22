@@ -1,0 +1,121 @@
+<sqlMap namespace="DaoCW_PAGINAENCUESTA"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+ 
+<resultMaps>
+	<resultMap id="ResultDaoCW_PAGINAENCUESTA" class="DaoCW_PAGINAENCUESTA">
+		<result property="IDPAGINAENCUESTA" column="IDPAGINAENCUESTA"/>
+		<result property="TITULO" column="TITULO"/>
+		<result property="INTRODUCCIONPAGINA" column="INTRODUCCIONPAGINA"/>
+		<result property="MENSAJEPIEPAGINA" column="MENSAJEPIEPAGINA"/>
+		<result property="DESCRIPCIONPIEPAGINA" column="DESCRIPCIONPIEPAGINA"/>
+		<result property="NUMEROPAGINA" column="NUMEROPAGINA"/>
+		<result property="IDENCUESTA" column="IDENCUESTA"/>
+	</resultMap>
+</resultMaps>
+
+
+<statements>
+	<select id="FindAllDaoCW_PAGINAENCUESTA" resultMap="ResultDaoCW_PAGINAENCUESTA">
+		 SELECT * FROM CW_PAGINAENCUESTA
+	</select>
+
+	<select id="FindDaoCW_PAGINAENCUESTA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE IDPAGINAENCUESTA = #value#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByTITULO" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE TITULO = #TITULO#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByINTRODUCCIONPAGINA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE INTRODUCCIONPAGINA = #INTRODUCCIONPAGINA#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByMENSAJEPIEPAGINA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByDESCRIPCIONPIEPAGINA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByNUMEROPAGINA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE NUMEROPAGINA = #NUMEROPAGINA#
+	</select>
+	<select id="FindDaoCW_PAGINAENCUESTAByIDENCUESTA" resultMap="ResultDaoCW_PAGINAENCUESTA" extends="FindAllDaoCW_PAGINAENCUESTA">
+		WHERE IDENCUESTA = #IDENCUESTA#
+	</select>
+
+	<select id="FindByOne" parameterClass="DaoCW_PAGINAENCUESTA" resultMap="ResultDaoCW_PAGINAENCUESTA">
+		Select * from CW_PAGINAENCUESTA
+		<dynamic prepend="WHERE 1 = 1">
+							<isNotNull property="IDPAGINAENCUESTA">
+				<isGreaterThan compareValue="0" property="IDPAGINAENCUESTA">
+					AND IDPAGINAENCUESTA = #IDPAGINAENCUESTA#
+				</isGreaterThan>
+
+			</isNotNull>
+
+							<isNotNull property="TITULO">
+					AND TITULO = #TITULO#
+			</isNotNull>
+
+							<isNotNull property="INTRODUCCIONPAGINA">
+					AND INTRODUCCIONPAGINA = #INTRODUCCIONPAGINA#
+			</isNotNull>
+
+							<isNotNull property="MENSAJEPIEPAGINA">
+					AND MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#
+			</isNotNull>
+
+							<isNotNull property="DESCRIPCIONPIEPAGINA">
+					AND DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#
+			</isNotNull>
+
+								<isGreaterThan compareValue="0" property="NUMEROPAGINA">
+					AND NUMEROPAGINA = #NUMEROPAGINA#
+				</isGreaterThan>
+
+								<isGreaterThan compareValue="0" property="IDENCUESTA">
+					AND IDENCUESTA = #IDENCUESTA#
+				</isGreaterThan>
+
+			</dynamic>
+	</select>
+
+<update id="UpdateDaoCW_PAGINAENCUESTA" >
+	UPDATE CW_PAGINAENCUESTA SET 
+		TITULO = #TITULO#,
+		INTRODUCCIONPAGINA = #INTRODUCCIONPAGINA#,
+		MENSAJEPIEPAGINA = #MENSAJEPIEPAGINA#,
+		DESCRIPCIONPIEPAGINA = #DESCRIPCIONPIEPAGINA#,
+		NUMEROPAGINA = #NUMEROPAGINA#,
+		IDENCUESTA = #IDENCUESTA#
+	WHERE IDPAGINAENCUESTA = #IDPAGINAENCUESTA#
+</update>
+
+<delete id="DeleteDaoCW_PAGINAENCUESTA" >
+	DELETE FROM CW_PAGINAENCUESTA
+	WHERE IDPAGINAENCUESTA = #IDPAGINAENCUESTA#
+</delete>
+
+<select id="GetMaxIdDaoCW_PAGINAENCUESTA" >
+SELECT MAX(IDPAGINAENCUESTA) + 1 FROM CW_PAGINAENCUESTA 
+</select>
+
+<insert id="CreateDaoCW_PAGINAENCUESTA" parameterClass="DaoCW_PAGINAENCUESTA">
+	INSERT INTO CW_PAGINAENCUESTA (
+		TITULO,
+		INTRODUCCIONPAGINA,
+		MENSAJEPIEPAGINA,
+		DESCRIPCIONPIEPAGINA,
+		NUMEROPAGINA,
+		IDENCUESTA)
+	VALUES(
+		#TITULO#,
+		#INTRODUCCIONPAGINA#,
+		#MENSAJEPIEPAGINA#,
+		#DESCRIPCIONPIEPAGINA#,
+		#NUMEROPAGINA#,
+		#IDENCUESTA#)
+</insert>
+
+</statements>
+
+</sqlMap>

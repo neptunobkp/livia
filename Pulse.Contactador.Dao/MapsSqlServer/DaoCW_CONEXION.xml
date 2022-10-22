@@ -1,0 +1,59 @@
+<sqlMap namespace="DaoCW_Conexion"
+xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="ResultCandenaConexion" class="DtoCadenaConexion">
+      <result property="Id" column="IDCONEXION"/>
+      <result property="Alias" column="ALIAS"/>
+      <result property="Servidor" column="SERVER"/>
+      <result property="NombreUsuario" column="USERNAME"/>
+      <result property="Contrasenia" column="PASSWORD"/>
+      <result property="BaseDatos" column="DABASENAME"/>
+      <result property="IdentificadorServidor" column="SID"/>
+      <result property="CadenaConfigurada" column="CADENACONEXION"/>
+      <result property="TipoEstadoEntidad" column="TIPOESTADOENTIDAD"/>
+      <result property="TipoMotorBaseDatos" column="TIPOMOTORBASEDATOS"/>
+      <result property="Puerto" column="PUERTO"/>
+    </resultMap>
+  </resultMaps>
+
+
+  <statements>
+    <select id="FindAll" resultMap="ResultCandenaConexion">
+      SELECT * FROM CW_CONEXIONDB
+    </select>
+
+    <select id="Find"  resultMap="ResultCandenaConexion" extends="FindAll">
+      WHERE IDCONEXION = #value#
+    </select>
+
+    <insert id="Create" parameterClass="DtoCadenaConexion">
+      INSERT INTO CW_CONEXIONDB (
+      ALIAS,
+      SERVER,
+      USERNAME,
+      PASSWORD,
+      DABASENAME,
+      SID,
+      CADENACONEXION,
+      TIPOESTADOENTIDAD,
+      TIPOMOTORBASEDATOS,
+      PUERTO
+      )
+      VALUES(
+      #Alias#,
+      #Servidor#,
+      #NombreUsuario#,
+      #Contrasenia#,
+      #BaseDatos#,
+      #IdentificadorServidor#,
+      #CadenaConfigurada#,
+      #TipoEstadoEntidad#,
+      #TipoMotorBaseDatos#,
+      #Puerto#)
+    </insert>
+
+  </statements>
+
+</sqlMap>
