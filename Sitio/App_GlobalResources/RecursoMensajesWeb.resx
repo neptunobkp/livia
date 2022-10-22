@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="a" xml:space="preserve">
+    <value>aa</value>
+  </data>
+  <data name="CuerpCorreoEncuestas" xml:space="preserve">
+    <value>&lt;p&gt;
+	Estimad@: #NOMBRES#&lt;br /&gt;
+	&lt;br /&gt;
+	Hoy comienza el proceso de evaluaci&amp;oacute;n de la Calidad de Servicio Interno.&lt;br /&gt;
+	&lt;br /&gt;
+	Lo invitamos a responder las encuestas ingresando &lt;a href="#LINK#"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt;
+&lt;img src="#IMAGEN#" alt="-"&gt; &lt;/img&gt;</value>
+  </data>
+  <data name="CuerpoCorreoRecordatorio" xml:space="preserve">
+    <value>&lt;img src="http://encuestainterna.bciseguros.cl/App_Themes/PulseTheme/images/logobcisegurosnuevo.JPG" /&gt;
+&lt;br /&gt;
+    Estimado(a):  #NOMBRES# &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+ No olvides responder la segunda Encuesta de Calidad de Servicio Interno del año 2017, donde te corresponde evaluar el servicio que tus proveedores internos te han prestado durante este año
+&lt;br /&gt;
+    Recuerda que:&lt;br /&gt;
+&lt;br /&gt;
+    •	Se evalúan servicios y &lt;b&gt;no personas &lt;/b&gt; (los nombres de los encargados de áreas figuran como referencia, solo para evitar confusiones en los servicios evaluados).&lt;br /&gt;
+&lt;br /&gt;
+    •	Si encuentras áreas con las que &lt;b&gt;no has interactuado, NO LA DEBES EVALUAR, sólo debes indicar No Aplica.&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+    •	La escala de evaluación de notas es de 1 a 7 :	&lt;br /&gt;
+    Notas de 1 a 4  - Insatisfacción con el servicio recibido&lt;br /&gt;
+    Nota 5  - Indiferencia &lt;br /&gt;
+    Nota 6 y 7 - Excelencia &lt;br /&gt;
+&lt;br /&gt;
+    Para acceder a la encuesta debes ingresar al siguiente link:&lt;br /&gt;&lt;br /&gt;
+&lt;a href="#LINK#"&gt;Link encuesta&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+Esta encuesta es de carácter obligatorio y el plazo para responderla finaliza el &lt;b&gt;&lt;/b&gt; jueves 6 de julio de 2017.&lt;/b&gt;</value>
+  </data>
+  <data name="CuerpoEncuestaCorreo" xml:space="preserve">
+    <value>&lt;img src="http://encuestainterna.bciseguros.cl/App_Themes/PulseTheme/images/logobcisegurosnuevo.JPG" /&gt;
+&lt;br /&gt;
+Estimado(a) Colaborador(a)
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+A partir de hoy se inicia la evaluación del primer semestre de &lt;b&gt;Experiencia de Servicio Interno 2021&lt;/b&gt;, que te entregan las otras áreas de la compañía para que puedas cumplir con tu trabajo.
+&lt;br /&gt;
+Esta información es carácter &lt;b&gt;confidencial&lt;/b&gt; y el propósito es que las áreas evaluadas generen acciones de mejora para proporcionarte un mejor servicio.
+&lt;br /&gt;
+&lt;br /&gt;
+Sé de los &lt;b&gt;100 primeros en responder&lt;/b&gt; y estarás participando en el sorteo de una Gift Card de $20.000.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+Ten en cuenta que…
+&lt;ul&gt;
+    &lt;li&gt;Se evalúan servicios y &lt;b&gt;no personas&lt;/b&gt; (los nombres de los encargados de las áreas, solo figuran como referencia, sólo para evitar confusiones).&lt;/li&gt;
+    &lt;li&gt;Si encuentras áreas con las que no has interactuado laboralmente, sólo debes seleccionar la respuesta &lt;b&gt;&lt;u&gt;No Aplica&lt;/u&gt;&lt;/b&gt;.&lt;/li&gt;
+    &lt;li&gt;Recuerda que las evaluaciones del primer y segundo semestre configuran la evaluación anual.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br /&gt;
+
+Para acceder a la encuesta debes ingresar al siguiente link:
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a style="color:red" href="#LINK#"&gt;Link encuesta&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+    El plazo para responderla finaliza el próximo &lt;span style="color:red"&gt;&lt;b&gt;28 de junio&lt;/b&gt;&lt;/span&gt; y tu apoyo es fundamental.
+Si tienes dudas puedes comunicarte con Paulina Gomez al e-mail: &lt;a href="mailto:paulina.gomez@bciseguros.com"&gt;paulina.gomez@bciseguros.com&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;</value>
+  </data>
+  <data name="SentenciaCorrectaSinRegistros" xml:space="preserve">
+    <value>La sentencia se ha ejecutado sin problemas, pero no ha conseguido resultados, no se recomienda guardar la lista de correo sin resultados.</value>
+  </data>
+  <data name="SentenciaExcelente" xml:space="preserve">
+    <value>¡Excelente! - se ha ejecutado la sentencia ingresada sin problemas, puede tener una vista previa del resultado más abajo.</value>
+  </data>
+</root>
