@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Principal.master.cs" Inherits="Compartida_Masters_Principal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Pulse-it</title>
+    <link href="../../App_Themes/PulseTheme/css/master.css" rel="stylesheet" type="text/css" />
+    <link href="../../App_Themes/PulseTheme/css/tablas.css" rel="stylesheet" type="text/css" />
+    <link href="../../App_Themes/PulseTheme/css/forms.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../../App_Themes/PulseTheme/images/favicon.ico" />
+    <asp:ContentPlaceHolder ID="headcss" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script src="../../scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+
+    <script src="../../scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder ID="headjs" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="nav">
+        <ul>
+            <li><a href="../../Campanias/PanelControl/Crear.aspx">Campañas</a> </li>
+            <li><a href="../../Encuestas/PanelControl/Opciones.aspx">Encuestas</a> </li>
+            <li><a href="../../Campanias/ListaCorreo/Listar.aspx">Contactos</a> </li>
+            <li><a href="../../Campanias/Mensaje/Listar.aspx">Mensajes</a> </li>
+            <li><a href="../../Encuestas/Resultados/Encuestas.aspx">Reportes</a> </li>
+            <li><a href="../../Mantenedores/Conexiones/Listar.aspx">Conexiones</a> </li>
+            <li><a href="../../Mantenedores/Plantillas/Listar.aspx">Plantillas</a> </li>
+            <li><a href="../../Mantenedores/Grupos/Listar.aspx">Grupos</a> </li>
+            <li><a href="../../Mantenedores/CarpetaEncuesta/Listar.aspx">Carpetas</a> </li>
+        </ul>
+    </div>
+    <div id="content">
+        <asp:ContentPlaceHolder ID="content_body" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="panel-mensaje-popup" title="Mensaje de sistema">
+    </div>
+    </form>
+</body>
+</html>
