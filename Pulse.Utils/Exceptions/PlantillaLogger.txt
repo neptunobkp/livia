@@ -1,0 +1,50 @@
+﻿<loggingConfiguration name="Logging Application Block" tracingEnabled="true"
+    defaultCategory="General" logWarningsWhenNoCategoriesMatch="true">
+    <listeners>
+      <add fileName="Logs\\ConsumosSoap.log" footer="----------------------------------------"
+        formatter="ConsumosFormatter" header="----------------------------------------"
+        rollFileExistsBehavior="Increment" rollInterval="None" rollSizeKB="0"
+        timeStampPattern="yyyy-MM-dd" listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.RollingFlatFileTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        traceOutputOptions="None" filter="All" type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.RollingFlatFileTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        name="Consumos" />
+      <add fileName="Logs\\ErroresSoap.log" footer="----------------------------------------"
+        formatter="Text Formatter" header="----------------------------------------"
+        rollFileExistsBehavior="Increment" rollInterval="Hour" rollSizeKB="0"
+        timeStampPattern="yyyy-MM-dd" listenerDataType="Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.RollingFlatFileTraceListenerData, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        traceOutputOptions="None" filter="All" type="Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.RollingFlatFileTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        name="Errores" />
+    </listeners>
+    <formatters>
+      <add template="{timestamp(local:yyyy-MM-dd HH:mm:ss.fff)} - {message} -{category}"
+        type="Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.TextFormatter, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        name="ConsumosFormatter" />
+      <add template="Timestamp: {timestamp(local:yyyy-MM-dd HH:mm:ss.fff)}&#xD;&#xA;Message: {message}&#xD;&#xA;Category: {category}&#xD;&#xA;Priority: {priority}&#xD;&#xA;EventId: {eventid}&#xD;&#xA;Severity: {severity}&#xD;&#xA;Title:{title}&#xD;&#xA;Machine: {machine}&#xD;&#xA;Application Domain: {appDomain}&#xD;&#xA;Process Id: {processId}&#xD;&#xA;Process Name: {processName}&#xD;&#xA;Win32 Thread Id: {win32ThreadId}&#xD;&#xA;Thread Name: {threadName}&#xD;&#xA;Extended Properties: {dictionary({key} - {value}&#xD;&#xA;)}"
+        type="Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.TextFormatter, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+        name="Text Formatter" />
+    </formatters>
+    <categorySources>
+      <add switchValue="All" name="ConsumosWS">
+        <listeners>
+          <add name="Consumos" />
+        </listeners>
+      </add>
+      <add switchValue="All" name="General">
+        <listeners>
+          <add name="Errores" />
+        </listeners>
+      </add>
+    </categorySources>
+    <specialSources>
+      <allEvents switchValue="All" name="All Events" />
+      <notProcessed switchValue="All" name="Unprocessed Category">
+        <listeners>
+          <add name="Consumos" />
+        </listeners>
+      </notProcessed>
+      <errors switchValue="All" name="Logging Errors &amp; Warnings">
+        <listeners>
+          <add name="Errores" />
+        </listeners>
+      </errors>
+    </specialSources>
+  </loggingConfiguration>

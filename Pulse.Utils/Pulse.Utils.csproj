@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5B4421D-C20E-4100-9C26-03A6C95FA3F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pulse.Utils</RootNamespace>
+    <AssemblyName>Pulse.Utils</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.Design, Version=2010.2.713.0, Culture=neutral, PublicKeyToken=29ac1a93ec063d92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Sitio\Bin\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2010.2.713.0, Culture=neutral, PublicKeyToken=29ac1a93ec063d92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Sitio\Bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CadenaUtils.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="EnumeracionHelper.cs" />
+    <Compile Include="Exceptions\ActionableException.cs" />
+    <Compile Include="Exceptions\DaoException.cs" />
+    <Compile Include="Exceptions\LoggerManager.cs" />
+    <Compile Include="Exceptions\PulseUtilsException.cs" />
+    <Compile Include="GestionConfiguracion.cs" />
+    <Compile Include="GlobalCastings.cs" />
+    <Compile Include="GlobalFormatings.cs" />
+    <Compile Include="MailUtils\MailHelper.cs" />
+    <Compile Include="ManipuladorFecha.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RutUtils.cs" />
+    <Compile Include="WebUtils\Helpers\ControlsHelper.cs" />
+    <Compile Include="WebUtils\Helpers\DropDownListHelper.cs" />
+    <Compile Include="WebUtils\Helpers\ListItemHelper.cs" />
+    <Compile Include="WebUtils\Helpers\NavigationHelper.cs" />
+    <Compile Include="WebUtils\Helpers\TextBoxHelper.cs" />
+    <Compile Include="WebUtils\NavigationHelper.cs" />
+    <Compile Include="Xml\SerializadorObjetos.cs" />
+    <Compile Include="XslFo\XmlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Exceptions\PlantillaLogger.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
